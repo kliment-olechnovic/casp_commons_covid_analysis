@@ -1,11 +1,25 @@
 #!/bin/bash
 
-TARGETNAME="$1"
+QAGROUPSSET="$1"
+TARGETNAME="$2"
+
+if [ -z "$QAGROUPSSET" ]
+then
+	echo >&2 "Error: missing QA groups set name"
+	exit 1
+fi
 
 if [ -z "$TARGETNAME" ]
 then
 	echo >&2 "Error: missing target name"
 	exit 1
+fi
+
+CONSENSUSDIR="./output/consensus_cadscores/$QAGROUPSSET/$TARGETNAME"
+
+if [ "$QAGROUPSSET" == "all" ]
+then
+	CONSENSUSDIR="./output/consensus_cadscores/$TARGETNAME"
 fi
 
 {
@@ -14,13 +28,13 @@ seq 15 5 50
 } \
 | while read TOPNUM
 do
-	if [ ! -s "./output/consensus_cadscores/${TARGETNAME}/top${TOPNUM}" ]
+	if [ ! -s "$CONSENSUSDIR/top${TOPNUM}" ]
 	then
-		scripts/calculate_consensus_scores_for_set_of_models.bash "$TARGETNAME" "$TOPNUM"
+		scripts/calculate_consensus_scores_for_set_of_models.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM"
 	fi
 done
 
-cd "./output/consensus_cadscores/$TARGETNAME"
+cd "$CONSENSUSDIR"
 
 export LC_ALL=C
 
@@ -62,10 +76,16 @@ EOF
 
 cd - &> /dev/null
 
-OUTDIR="./output/summaries_of_consensus_cadscores"
+OUTDIR="./output/summaries_of_consensus_cadscores/$QAGROUPSSET"
+
+if [ "$QAGROUPSSET" == "all" ]
+then
+	OUTDIR="./output/summaries_of_consensus_cadscores"
+fi
+
 mkdir -p "$OUTDIR"
 
-cat "./output/consensus_cadscores/$TARGETNAME/summary" \
+cat "$CONSENSUSDIR/summary" \
 | sed 's/ 0.000/ 0/g' \
 | column -t \
 > "${OUTDIR}/${TARGETNAME}.txt"

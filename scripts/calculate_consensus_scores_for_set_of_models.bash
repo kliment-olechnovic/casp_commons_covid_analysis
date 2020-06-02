@@ -1,7 +1,14 @@
 #!/bin/bash
 
-TARGETNAME="$1"
-TOPNUM="$2"
+QAGROUPSSET="$1"
+TARGETNAME="$2"
+TOPNUM="$3"
+
+if [ -z "$QAGROUPSSET" ]
+then
+	echo >&2 "Error: missing QA groups set name"
+	exit 1
+fi
 
 if [ -z "$TARGETNAME" ]
 then
@@ -21,7 +28,7 @@ trap "rm -r $TMPLDIR" EXIT
 {
 echo "model count"
 
-./scripts/print_top_selected_models_for_target.bash "$TARGETNAME" "$TOPNUM" \
+./scripts/print_top_selected_models_for_target.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM" \
 | sort \
 | uniq -c \
 | awk '{print $2 " " $1}'
@@ -84,7 +91,13 @@ EOF
 
 cd - &> /dev/null
 
-OUTDIR="./output/consensus_cadscores/$TARGETNAME"
+OUTDIR="./output/consensus_cadscores/$QAGROUPSSET/$TARGETNAME"
+
+if [ "$QAGROUPSSET" == "all" ]
+then
+	OUTDIR="./output/consensus_cadscores/$TARGETNAME"
+fi
+
 mkdir -p "$OUTDIR"
 
 cat "$TMPLDIR/result" \

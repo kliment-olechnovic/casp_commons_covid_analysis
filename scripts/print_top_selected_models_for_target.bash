@@ -1,7 +1,14 @@
 #!/bin/bash
 
-TARGETNAME="$1"
-TOPNUM="$2"
+QAGROUPSSET="$1"
+TARGETNAME="$2"
+TOPNUM="$3"
+
+if [ -z "$QAGROUPSSET" ]
+then
+	echo >&2 "Error: missing QA groups set name"
+	exit 1
+fi
 
 if [ -z "$TARGETNAME" ]
 then
@@ -15,10 +22,19 @@ then
 	exit 1
 fi
 
+QAGROUPSSETFILE="./input/qa_groups_sets/$QAGROUPSSET"
+
+if [ ! -s "$QAGROUPSSETFILE" ]
+then
+	echo >&2 "Error: missing QA groups set file '$QAGROUPSSETFILE'"
+	exit 1
+fi
+
 export LC_ALL=C
 
 find ./input/qa_submissions/ -type f -not -empty \
 | grep "/${TARGETNAME}QA" \
+| grep -f "$QAGROUPSSETFILE" \
 | while read TABLEFILE
 do
 	MCOUNT="$(cat "${TABLEFILE}" | egrep "^${TARGETNAME}" | wc -l)"

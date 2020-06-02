@@ -9,13 +9,13 @@
 ./scripts/compare_all_models_in_directory.bash ./input/models/C1909_0406
 ./scripts/compare_all_models_in_directory.bash ./input/models/C1910_0406
 
-./scripts/calculate_consensus_scores_for_target.bash C1901
-./scripts/calculate_consensus_scores_for_target.bash C1902
-./scripts/calculate_consensus_scores_for_target.bash C1903
-./scripts/calculate_consensus_scores_for_target.bash C1904
-./scripts/calculate_consensus_scores_for_target.bash C1905
-./scripts/calculate_consensus_scores_for_target.bash C1906
-./scripts/calculate_consensus_scores_for_target.bash C1907
-./scripts/calculate_consensus_scores_for_target.bash C1908
-./scripts/calculate_consensus_scores_for_target.bash C1909
-./scripts/calculate_consensus_scores_for_target.bash C1910
+./scripts/calculate_consensus_scores_for_target.bash all C1901
+./scripts/calculate_consensus_scores_for_target.bash all C1902
+./scripts/calculate_consensus_scores_for_target.bash all C1903
+./scripts/calculate_consensus_scores_for_target.bash all C1904
+./scripts/calculate_consensus_scores_for_target.bash all C1905
+./scripts/calculate_consensus_scores_for_target.bash all C1906
+./scripts/calculate_consensus_scores_for_target.bash all C1907
+./scripts/calculate_consensus_scores_for_target.bash all C1908
+./scripts/calculate_consensus_scores_for_target.bash all C1909
+./scripts/calculate_consensus_scores_for_target.bash all C1910
