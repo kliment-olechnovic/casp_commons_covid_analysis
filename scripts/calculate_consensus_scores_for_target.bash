@@ -113,18 +113,18 @@ tr:hover {background-color:#ccccff;}
 
 <body>
 
-<h2>TARGET</h2>
+<h2>_TARGET_</h2>
 
 <p>
 This table contains consensus scores for models that were ranked highly by QA methods.
 </p>
 
 <p>
-For each 'cs_topN' column, top N models were selected using every available QA ranking,
-then all the selected models were bundled together (allowing model repetions if a model was selected by more than on QA method)
+For each 'cs_topN' column, top N models were selected using every of _all_ available QA rankings,
+then all the selected models were bundled together (allowing model repetions if a model was selected by more than one QA method)
 and a consensus CAD-score value (average of all pairwise comparisons)
 was calculated for each model (zero values were assigned for models than were not selected).
-Similar anlysis can be done using lDDT and, considering that lDDT and CAD-score correlate, results should be similar.
+Similar analysis can be done using lDDT and, considering that lDDT and CAD-score correlate well, results should be similar.
 </p>
 
 <p>
@@ -155,7 +155,8 @@ cat << 'EOF'
 </html>
 EOF
 } \
-| sed "s|TARGET|${TARGETNAME}|" \
+| sed "s|_TARGET_|${TARGETNAME}|" \
+| sed "s|_all_|${QAGROUPSSET}|" \
 > "${OUTDIR}/${TARGETNAME}.html"
 
 
