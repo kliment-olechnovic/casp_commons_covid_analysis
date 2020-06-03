@@ -95,6 +95,10 @@ cat "$CONSENSUSDIR/summary" \
 cat << 'EOF'
 <html>
 
+<head>
+
+<script src="sorttable.js"></script>
+
 <style>
 
 table {
@@ -110,6 +114,8 @@ table, td, th {
 tr:hover {background-color:#ccccff;}
 
 </style>
+
+</head>
 
 <body>
 
@@ -128,10 +134,10 @@ Similar analysis can be done using lDDT and, considering that lDDT and CAD-score
 </p>
 
 <p>
-The table is sorted by 'cs_top1'. Highest column values are highlighted.
+The table is sorted by 'cs_top1'. Highest column values are highlighted. Table can be resorted by clicking on a column header.
 </p>
 
-<table>
+<table class="sortable">
 EOF
 
 cat "${OUTDIR}/${TARGETNAME}.txt" \
