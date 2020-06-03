@@ -60,7 +60,7 @@ for(i in 2:ncol(dt))
 	dt[which(!is.finite(dt[,i])), i]=0;
 }
 
-dt=dt[order(0-dt$cs_top1, 0-dt$cs_top2, 0-dt$cs_top3, 0-dt$cs_top4, 0-dt$cs_top5, 0-dt$cs_top6, 0-dt$cs_top7, 0-dt$cs_top8, 0-dt$cs_top9, 0-dt$cs_top10),];
+dt=dt[order(0-dt$cs_top1, 0-dt$cs_top2, 0-dt$cs_top3, 0-dt$cs_top4, 0-dt$cs_top5, 0-dt$cs_top6, 0-dt$cs_top7, 0-dt$cs_top8, 0-dt$cs_top9, 0-dt$cs_top10, 0-dt$cs_top15, 0-dt$cs_top20, 0-dt$cs_top25, 0-dt$cs_top30, 0-dt$cs_top35, 0-dt$cs_top40, 0-dt$cs_top45, 0-dt$cs_top50),];
 
 dt=format(dt, digits=3);
 
