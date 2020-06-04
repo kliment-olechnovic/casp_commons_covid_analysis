@@ -31,10 +31,24 @@ This table contains consensus scores for models that were ranked highly by QA me
 </p>
 
 <p>
-For each 'cs_topN' column, top N models were selected using every of all available QA rankings,
-then all the selected models were bundled together (allowing model repetions if a model was selected by more than one QA method)
-and a consensus CAD-score value (average of all pairwise comparisons)
-was calculated for each model (zero values were assigned for models than were not selected).
+For each 'cs_topN' column the following computations were performed:
+<ul>
+<li>
+  Top N models were selected using every of all available QA rankings.
+</li>
+<li>
+  All the selected models were bundled together.
+  If a model was selected by more than one QA method, it is included multiple times: this way "popular" models gain more weight.
+</li>
+<li>
+  A consensus CAD-score value (average of all pairwise comparisons)
+  was calculated for every model from the bundle.
+  Zero values were assigned to models than were not in the bundle.
+</li>
+</ul>
+</p>
+
+<p>
 Similar analysis can be done using lDDT and, considering that lDDT and CAD-score correlate well, results should be similar.
 </p>
 
