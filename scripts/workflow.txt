@@ -25,6 +25,7 @@
 ./scripts/compare_all_models_in_directory.bash ./input/models/C1906d1
 ./scripts/compare_all_models_in_directory.bash ./input/models/C1906d2
 
+
 ./scripts/calculate_consensus_scores_for_target.bash all C1901
 ./scripts/calculate_consensus_scores_for_target.bash all C1902
 ./scripts/calculate_consensus_scores_for_target.bash all C1903
@@ -52,84 +53,4 @@
 ./scripts/calculate_consensus_scores_for_target.bash all C1906d1
 ./scripts/calculate_consensus_scores_for_target.bash all C1906d2
 
-./scripts/calculate_consensus_scores_for_target.bash unique C1901
-./scripts/calculate_consensus_scores_for_target.bash unique C1902
-./scripts/calculate_consensus_scores_for_target.bash unique C1903
-./scripts/calculate_consensus_scores_for_target.bash unique C1904
-./scripts/calculate_consensus_scores_for_target.bash unique C1905
-./scripts/calculate_consensus_scores_for_target.bash unique C1906
-./scripts/calculate_consensus_scores_for_target.bash unique C1907
-./scripts/calculate_consensus_scores_for_target.bash unique C1908
-./scripts/calculate_consensus_scores_for_target.bash unique C1909
-./scripts/calculate_consensus_scores_for_target.bash unique C1910
-
-./scripts/calculate_consensus_scores_for_target.bash unique C1901d1
-./scripts/calculate_consensus_scores_for_target.bash unique C1901d2
-./scripts/calculate_consensus_scores_for_target.bash unique C1901d3
-./scripts/calculate_consensus_scores_for_target.bash unique C1902d1
-./scripts/calculate_consensus_scores_for_target.bash unique C1902d2
-./scripts/calculate_consensus_scores_for_target.bash unique C1902d3
-./scripts/calculate_consensus_scores_for_target.bash unique C1903d1
-./scripts/calculate_consensus_scores_for_target.bash unique C1903d2
-./scripts/calculate_consensus_scores_for_target.bash unique C1904d1
-./scripts/calculate_consensus_scores_for_target.bash unique C1904d2
-./scripts/calculate_consensus_scores_for_target.bash unique C1904d3
-./scripts/calculate_consensus_scores_for_target.bash unique C1905d1
-./scripts/calculate_consensus_scores_for_target.bash unique C1905d2
-./scripts/calculate_consensus_scores_for_target.bash unique C1906d1
-./scripts/calculate_consensus_scores_for_target.bash unique C1906d2
-
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1901
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1902
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1903
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1904
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1905
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1906
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1907
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1908
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1909
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1910
-
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1901d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1901d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1901d3
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1902d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1902d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1902d3
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1903d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1903d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1904d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1904d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1904d3
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1905d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1905d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1906d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041_274 C1906d2
-
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1901
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1902
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1903
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1904
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1905
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1906
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1907
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1908
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1909
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1910
-
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1901d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1901d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1901d3
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1902d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1902d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1902d3
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1903d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1903d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1904d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1904d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1904d3
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1905d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1905d2
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1906d1
-./scripts/calculate_consensus_scores_for_target.bash qa_041 C1906d2
 
