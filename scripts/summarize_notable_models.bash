@@ -15,7 +15,7 @@ then
 	exit 1
 fi
 
-if [ "$RUNMODE" != "domain" ] && [ "$RUNMODE" != "full" ]
+if [ "$RUNMODE" != "domain" ] && [ "$RUNMODE" != "full" ] && [ "$RUNMODE" != "full_x2" ]
 then
 	echo >&2 "Error: invalid run mode parameter"
 	exit 1
@@ -93,7 +93,10 @@ C1905d2
 C1906d1
 C1906d2
 EOF
-else
+fi
+
+if [ "$RUNMODE" == "full" ]
+then
 cat << 'EOF'
 C1901
 C1902
@@ -105,6 +108,19 @@ C1907
 C1908
 C1909
 C1910
+EOF
+fi
+
+if [ "$RUNMODE" == "full_x2" ]
+then
+cat << 'EOF'
+C1901x2
+C1902x2
+C1903x2
+C1904x2
+C1905x2
+C1906x2
+C1908x2
 EOF
 fi
 } \

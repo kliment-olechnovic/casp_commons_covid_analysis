@@ -1,0 +1,117 @@
+<html>
+
+<head>
+
+<script src="sorttable.js"></script>
+
+<style>
+
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+tr:hover {background-color:#ccccff;}
+
+</style>
+
+</head>
+
+<body>
+
+<a href='../index.html'>output</a> / <a href='index.html'>summaries_of_consensus_lddts</a> / C1903x2
+
+<h2>C1903x2</h2>
+
+<p>
+This table contains consensus scores for models that were ranked highly by QA methods.
+</p>
+
+<hr>
+
+<p>
+Before the analysis, the input data was pruned by doing the following:
+<ul>
+<li>
+  Duplicated models were removed based on the CAD-score threshold of 0.8.
+</li>
+<li>
+  The set of QA methods was pruned to remove repeating variations of methods: the number of QA methods was reduced from 30 to 23.
+</li>
+</ul>
+The above prunning steps had a very small effect on the final results.
+</p>
+
+<hr>
+
+<p>
+For each 'cs_topN' column the following computations were performed:
+<ul>
+<li>
+  Top N models were selected using every of all available QA rankings.
+</li>
+<li>
+  All the selected models were bundled together.
+  If a model was selected by more than one QA method, it is included multiple times: this way "popular" models gain more weight.
+</li>
+<li>
+  A consensus similarity value (average of all pairwise comparisons)
+  was calculated for every model from the bundle.
+  Zero values were assigned to models than were not in the bundle.
+</li>
+</ul>
+</p>
+
+<p>
+The table is sorted by 'cs_top1'. Highest column values are highlighted. Table can be resorted by clicking on a column header.
+</p>
+
+<table class="sortable">
+<tr> <th>model</th>           <th>cs_top1</th>  <th>cs_top2</th>  <th>cs_top3</th>  <th>cs_top4</th>  <th>cs_top5</th>  <th>cs_top6</th>  <th>cs_top7</th>  <th>cs_top8</th>  <th>cs_top9</th>  <th>cs_top10</th>  <th>cs_top15</th>  <th>cs_top20</th>  <th>cs_top25</th>  <th>cs_top30</th>  <th>cs_top35</th>  <th>cs_top40</th>  <th>cs_top45</th>  <th>cs_top50</th> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS228_3'>C1903x2TS228_3</a></td>  <td><mark>0.376</mark></td>  <td>0.349</td>    <td>0.341</td>    <td>0.332</td>    <td>0.331</td>    <td>0.341</td>    <td>0.343</td>    <td>0.344</td>    <td>0.352</td>    <td>0.356</td>     <td>0.387</td>     <td>0.375</td>     <td>0.359</td>     <td>0.344</td>     <td>0.328</td>     <td>0.312</td>     <td>0.312</td>     <td>0.312</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS044_1'>C1903x2TS044_1</a></td>  <td>0.374</td>    <td>0.343</td>    <td>0.338</td>    <td>0.332</td>    <td>0.327</td>    <td>0.327</td>    <td>0.327</td>    <td>0.333</td>    <td>0.346</td>    <td>0.345</td>     <td>0.351</td>     <td>0.345</td>     <td>0.339</td>     <td>0.329</td>     <td>0.315</td>     <td>0.301</td>     <td>0.301</td>     <td>0.301</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS131_4'>C1903x2TS131_4</a></td>  <td>0.363</td>    <td>0.400</td>    <td>0.413</td>    <td>0.393</td>    <td>0.388</td>    <td>0.399</td>    <td>0.417</td>    <td>0.434</td>    <td>0.443</td>    <td>0.450</td>     <td>0.434</td>     <td>0.412</td>     <td>0.386</td>     <td>0.366</td>     <td>0.345</td>     <td>0.328</td>     <td>0.328</td>     <td>0.328</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS389_3'>C1903x2TS389_3</a></td>  <td>0.351</td>    <td>0.341</td>    <td>0.347</td>    <td>0.340</td>    <td>0.336</td>    <td>0.354</td>    <td>0.358</td>    <td>0.357</td>    <td>0.367</td>    <td>0.368</td>     <td>0.390</td>     <td>0.380</td>     <td>0.364</td>     <td>0.351</td>     <td>0.333</td>     <td>0.317</td>     <td>0.317</td>     <td>0.317</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS215_1'>C1903x2TS215_1</a></td>  <td>0.345</td>    <td>0.367</td>    <td>0.392</td>    <td>0.376</td>    <td>0.357</td>    <td>0.345</td>    <td>0.336</td>    <td>0.330</td>    <td>0.326</td>    <td>0.322</td>     <td>0.317</td>     <td>0.315</td>     <td>0.303</td>     <td>0.293</td>     <td>0.282</td>     <td>0.271</td>     <td>0.271</td>     <td>0.271</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS215_5'>C1903x2TS215_5</a></td>  <td>0.343</td>    <td>0.337</td>    <td>0.319</td>    <td>0.335</td>    <td>0.344</td>    <td>0.343</td>    <td>0.340</td>    <td>0.331</td>    <td>0.326</td>    <td>0.326</td>     <td>0.317</td>     <td>0.312</td>     <td>0.301</td>     <td>0.292</td>     <td>0.281</td>     <td>0.270</td>     <td>0.270</td>     <td>0.270</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS389_1'>C1903x2TS389_1</a></td>  <td>0.342</td>    <td>0.337</td>    <td>0.357</td>    <td>0.346</td>    <td>0.341</td>    <td>0.346</td>    <td>0.348</td>    <td>0.353</td>    <td>0.356</td>    <td>0.362</td>     <td>0.390</td>     <td>0.382</td>     <td>0.364</td>     <td>0.350</td>     <td>0.331</td>     <td>0.315</td>     <td>0.315</td>     <td>0.315</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS215_3'>C1903x2TS215_3</a></td>  <td>0.273</td>    <td>0.354</td>    <td>0.362</td>    <td>0.339</td>    <td>0.357</td>    <td>0.352</td>    <td>0.340</td>    <td>0.337</td>    <td>0.330</td>    <td>0.324</td>     <td>0.310</td>     <td>0.304</td>     <td>0.293</td>     <td>0.285</td>     <td>0.275</td>     <td>0.265</td>     <td>0.265</td>     <td>0.265</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS073_3'>C1903x2TS073_3</a></td>  <td>0.271</td>    <td>0.265</td>    <td>0.266</td>    <td>0.268</td>    <td>0.268</td>    <td>0.269</td>    <td>0.270</td>    <td>0.270</td>    <td>0.272</td>    <td>0.272</td>     <td>0.276</td>     <td>0.287</td>     <td>0.303</td>     <td>0.301</td>     <td>0.289</td>     <td>0.278</td>     <td>0.278</td>     <td>0.278</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS131_3'>C1903x2TS131_3</a></td>  <td>0</td>        <td><mark>0.402</mark></td>  <td><mark>0.421</mark></td>  <td><mark>0.399</mark></td>  <td><mark>0.396</mark></td>  <td><mark>0.400</mark></td>  <td><mark>0.428</mark></td>  <td><mark>0.436</mark></td>  <td><mark>0.449</mark></td>  <td>0.453</td>     <td>0.435</td>     <td>0.412</td>     <td>0.386</td>     <td>0.366</td>     <td>0.345</td>     <td>0.328</td>     <td>0.328</td>     <td>0.328</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS389_2'>C1903x2TS389_2</a></td>  <td>0</td>        <td>0.345</td>    <td>0.375</td>    <td>0.362</td>    <td>0.354</td>    <td>0.363</td>    <td>0.363</td>    <td>0.362</td>    <td>0.365</td>    <td>0.370</td>     <td>0.392</td>     <td>0.382</td>     <td>0.367</td>     <td>0.353</td>     <td>0.335</td>     <td>0.319</td>     <td>0.319</td>     <td>0.319</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS228_2'>C1903x2TS228_2</a></td>  <td>0</td>        <td>0.309</td>    <td>0.308</td>    <td>0.313</td>    <td>0.322</td>    <td>0.325</td>    <td>0.334</td>    <td>0.336</td>    <td>0.341</td>    <td>0.349</td>     <td>0.363</td>     <td>0.364</td>     <td>0.353</td>     <td>0.339</td>     <td>0.321</td>     <td>0.305</td>     <td>0.305</td>     <td>0.305</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS215_4'>C1903x2TS215_4</a></td>  <td>0</td>        <td>0.290</td>    <td>0.308</td>    <td>0.366</td>    <td>0.370</td>    <td>0.365</td>    <td>0.354</td>    <td>0.352</td>    <td>0.346</td>    <td>0.341</td>     <td>0.335</td>     <td>0.320</td>     <td>0.309</td>     <td>0.301</td>     <td>0.289</td>     <td>0.278</td>     <td>0.278</td>     <td>0.278</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS215_2'>C1903x2TS215_2</a></td>  <td>0</td>        <td>0.271</td>    <td>0.289</td>    <td>0.310</td>    <td>0.312</td>    <td>0.315</td>    <td>0.323</td>    <td>0.316</td>    <td>0.311</td>    <td>0.307</td>     <td>0.300</td>     <td>0.302</td>     <td>0.294</td>     <td>0.287</td>     <td>0.276</td>     <td>0.266</td>     <td>0.266</td>     <td>0.266</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS131_2'>C1903x2TS131_2</a></td>  <td>0</td>        <td>0</td>        <td>0.377</td>    <td>0.376</td>    <td>0.379</td>    <td>0.388</td>    <td>0.415</td>    <td>0.428</td>    <td>0.438</td>    <td>0.450</td>     <td><mark>0.440</mark></td>   <td>0.416</td>     <td>0.390</td>     <td>0.370</td>     <td>0.349</td>     <td>0.332</td>     <td>0.332</td>     <td>0.332</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS131_1'>C1903x2TS131_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0.377</td>    <td>0.380</td>    <td>0.390</td>    <td>0.412</td>    <td>0.422</td>    <td>0.445</td>    <td><mark>0.455</mark></td>   <td><mark>0.440</mark></td>   <td><mark>0.417</mark></td>   <td><mark>0.391</mark></td>   <td><mark>0.372</mark></td>   <td><mark>0.351</mark></td>   <td><mark>0.334</mark></td>   <td><mark>0.334</mark></td>   <td><mark>0.334</mark></td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS073_2'>C1903x2TS073_2</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0.264</td>    <td>0.264</td>    <td>0.265</td>    <td>0.266</td>    <td>0.267</td>    <td>0.269</td>    <td>0.269</td>     <td>0.276</td>     <td>0.280</td>     <td>0.292</td>     <td>0.298</td>     <td>0.287</td>     <td>0.276</td>     <td>0.276</td>     <td>0.276</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS228_1'>C1903x2TS228_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0.316</td>    <td>0.321</td>    <td>0.331</td>    <td>0.335</td>    <td>0.347</td>    <td>0.356</td>     <td>0.369</td>     <td>0.371</td>     <td>0.359</td>     <td>0.346</td>     <td>0.327</td>     <td>0.310</td>     <td>0.310</td>     <td>0.310</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS073_1'>C1903x2TS073_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0.269</td>    <td>0.270</td>    <td>0.271</td>    <td>0.270</td>    <td>0.272</td>    <td>0.272</td>     <td>0.276</td>     <td>0.287</td>     <td>0.304</td>     <td>0.302</td>     <td>0.290</td>     <td>0.279</td>     <td>0.279</td>     <td>0.279</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS228_4'>C1903x2TS228_4</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0.309</td>    <td>0.315</td>    <td>0.326</td>    <td>0.332</td>    <td>0.341</td>     <td>0.358</td>     <td>0.358</td>     <td>0.347</td>     <td>0.332</td>     <td>0.315</td>     <td>0.299</td>     <td>0.299</td>     <td>0.299</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS123_4'>C1903x2TS123_4</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0.267</td>    <td>0.267</td>    <td>0.268</td>    <td>0.268</td>    <td>0.268</td>     <td>0.269</td>     <td>0.269</td>     <td>0.278</td>     <td>0.290</td>     <td>0.285</td>     <td>0.275</td>     <td>0.275</td>     <td>0.275</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS131_5'>C1903x2TS131_5</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0.418</td>    <td>0.428</td>    <td>0.441</td>     <td>0.436</td>     <td><mark>0.417</mark></td>   <td><mark>0.391</mark></td>   <td>0.371</td>     <td>0.350</td>     <td>0.333</td>     <td>0.333</td>     <td>0.333</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS121_1'>C1903x2TS121_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0.230</td>    <td>0.230</td>    <td>0.230</td>     <td>0.230</td>     <td>0.231</td>     <td>0.240</td>     <td>0.248</td>     <td>0.250</td>     <td>0.242</td>     <td>0.242</td>     <td>0.242</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS228_5'>C1903x2TS228_5</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0.328</td>     <td>0.357</td>     <td>0.360</td>     <td>0.349</td>     <td>0.335</td>     <td>0.318</td>     <td>0.303</td>     <td>0.303</td>     <td>0.303</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS123_1'>C1903x2TS123_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0.278</td>     <td>0.283</td>     <td>0.292</td>     <td>0.300</td>     <td>0.290</td>     <td>0.278</td>     <td>0.278</td>     <td>0.278</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS073_4'>C1903x2TS073_4</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0.275</td>     <td>0.280</td>     <td>0.287</td>     <td>0.300</td>     <td>0.293</td>     <td>0.281</td>     <td>0.281</td>     <td>0.281</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS073_5'>C1903x2TS073_5</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0.270</td>     <td>0.274</td>     <td>0.287</td>     <td>0.298</td>     <td>0.287</td>     <td>0.276</td>     <td>0.276</td>     <td>0.276</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS123_2'>C1903x2TS123_2</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0.242</td>     <td>0.260</td>     <td>0.264</td>     <td>0.263</td>     <td>0.253</td>     <td>0.244</td>     <td>0.244</td>     <td>0.244</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS103_1'>C1903x2TS103_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0.268</td>     <td>0.275</td>     <td>0.284</td>     <td>0.274</td>     <td>0.263</td>     <td>0.263</td>     <td>0.263</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS123_3'>C1903x2TS123_3</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0.277</td>     <td>0.289</td>     <td>0.279</td>     <td>0.267</td>     <td>0.267</td>     <td>0.267</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS067_1'>C1903x2TS067_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0.244</td>     <td>0.253</td>     <td>0.261</td>     <td>0.253</td>     <td>0.253</td>     <td>0.253</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS121_2'>C1903x2TS121_2</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0.208</td>     <td>0.212</td>     <td>0.225</td>     <td>0.216</td>     <td>0.216</td>     <td>0.216</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS067_4'>C1903x2TS067_4</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0.252</td>     <td>0.268</td>     <td>0.260</td>     <td>0.260</td>     <td>0.260</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS003_1'>C1903x2TS003_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0.226</td>     <td>0.244</td>     <td>0.240</td>     <td>0.240</td>     <td>0.240</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS049_1'>C1903x2TS049_1</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0.198</td>     <td>0.205</td>     <td>0.207</td>     <td>0.207</td>     <td>0.207</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS049_5'>C1903x2TS049_5</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0.192</td>     <td>0.202</td>     <td>0.202</td>     <td>0.202</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS049_4'>C1903x2TS049_4</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0.148</td>     <td>0.159</td>     <td>0.159</td>     <td>0.159</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS049_3'>C1903x2TS049_3</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0.148</td>     <td>0.163</td>     <td>0.163</td>     <td>0.163</td> </tr>
+<tr> <td><a href='https://predictioncenter.org/caspcommons/MODELS/C1903x2/C1903x2TS049_2'>C1903x2TS049_2</a></td>  <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>        <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0</td>         <td>0.145</td>     <td>0.159</td>     <td>0.159</td>     <td>0.159</td> </tr>
+</table>
+</body>
+</html>

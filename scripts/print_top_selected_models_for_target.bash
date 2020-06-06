@@ -46,7 +46,7 @@ find ./input/qa_submissions/ -type f -not -empty \
 | while read TABLEFILE
 do
 	MCOUNT="$(cat "${TABLEFILE}" | egrep "^${TARGETNAME}" | wc -l)"
-	if [ "$MCOUNT" -gt 30 ]
+	if [ "$MCOUNT" -gt 20 ]
 	then
 		cat "${TABLEFILE}" \
 		| egrep "^${TARGETNAME}" \

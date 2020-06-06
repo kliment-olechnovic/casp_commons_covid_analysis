@@ -29,6 +29,13 @@ C1905d1
 C1905d2
 C1906d1
 C1906d2
+C1901x2
+C1902x2
+C1903x2
+C1904x2
+C1905x2
+C1906x2
+C1908x2
 EOF
 
 for SCORENAME in cadscores lddts
@@ -41,5 +48,6 @@ do
 	
 	./scripts/summarize_notable_models.bash "$SCORENAME" domain
 	./scripts/summarize_notable_models.bash "$SCORENAME" full
+	./scripts/summarize_notable_models.bash "$SCORENAME" full_x2
 done
 
