@@ -134,9 +134,22 @@ tr:hover {background-color:#ccccff;}
 This table contains consensus scores for models that were ranked highly by QA methods.
 </p>
 
+<hr>
+
 <p>
-Before the analysis, duplicated models were removed based on the CAD-score threshold of 0.8.
+Before the analysis, the input data was pruned by doing the following:
+<ul>
+<li>
+  Duplicated models were removed based on the CAD-score threshold of 0.8.
+</li>
+<li>
+  The set of QA models was pruned to remove repeating variations of methods: the number of QA methods was reduced from 30 to 23.
+</li>
+</ul>
+The above prunning steps had a very small effect on the final results.
 </p>
+
+<hr>
 
 <p>
 For each 'cs_topN' column the following computations were performed:
