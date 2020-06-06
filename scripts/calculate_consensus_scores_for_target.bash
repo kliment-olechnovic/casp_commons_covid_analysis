@@ -1,7 +1,14 @@
 #!/bin/bash
 
-QAGROUPSSET="$1"
-TARGETNAME="$2"
+SCORENAME="$1"
+QAGROUPSSET="$2"
+TARGETNAME="$3"
+
+if [ -z "$SCORENAME" ]
+then
+	echo >&2 "Error: missing score name"
+	exit 1
+fi
 
 if [ -z "$QAGROUPSSET" ]
 then
@@ -30,7 +37,7 @@ seq 15 5 50
 do
 	if [ ! -s "$CONSENSUSDIR/top${TOPNUM}" ]
 	then
-		scripts/calculate_consensus_scores_for_set_of_models.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM"
+		scripts/calculate_consensus_scores_for_set_of_models.bash "$SCORENAME" "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM"
 	fi
 done
 

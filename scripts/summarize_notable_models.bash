@@ -1,6 +1,13 @@
 #!/bin/bash
 
-RUNMODE="$1"
+SCORENAME="$1"
+RUNMODE="$2"
+
+if [ -z "$SCORENAME" ]
+then
+	echo >&2 "Error: missing score name"
+	exit 1
+fi
 
 if [ -z "$RUNMODE" ]
 then
@@ -106,13 +113,13 @@ do
 	
 	echo '<table class="sortable">'
 	
-	cat "./output/summaries_of_consensus_cadscores/${TARGETNAME}.txt" \
+	cat "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}.txt" \
 	| head -1 \
 	| sed 's|^|<tr> |' \
 	| sed 's|$| </tr>|' \
 	| sed 's| \(\S\+\) | <th>\1\</th> |g'
 	
-	cat "./output/summaries_of_consensus_cadscores/${TARGETNAME}.txt" \
+	cat "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}.txt" \
 	| tail -n +2 \
 	| grep "\[" \
 	| sed 's|^|<tr> |' \
@@ -131,5 +138,5 @@ cat << 'EOF'
 EOF
 } \
 | sed "s|_RUNMODE_|${RUNMODE}|" \
-> "./output/summaries_of_consensus_cadscores/notable_models_for_${RUNMODE}_targets.html"
+> "./output/summaries_of_consensus_${SCORENAME}/notable_models_for_${RUNMODE}_targets.html"
 

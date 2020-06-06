@@ -1,8 +1,15 @@
 #!/bin/bash
 
-QAGROUPSSET="$1"
-TARGETNAME="$2"
-TOPNUM="$3"
+SCORENAME="$1"
+QAGROUPSSET="$2"
+TARGETNAME="$3"
+TOPNUM="$4"
+
+if [ -z "$SCORENAME" ]
+then
+	echo >&2 "Error: missing score name"
+	exit 1
+fi
 
 if [ -z "$QAGROUPSSET" ]
 then
@@ -38,19 +45,17 @@ echo "model count"
 {
 echo "model1 model2 score"
 
-find ./output/cadscores/ -type f -name "*${TARGETNAME}TS*" \
-| sort \
-| xargs cat \
-| awk '{print $1 " " $2 " " $5}'
+cat "./output/${SCORENAME}/all_${SCORENAME}" \
+| egrep "^${TARGETNAME}TS"
 } \
-> "$TMPLDIR/cadscores"
+> "$TMPLDIR/scores"
 
 cd "$TMPLDIR"
 
 R --vanilla > /dev/null << 'EOF'
 
 dt_models=read.table("models", header=TRUE, stringsAsFactors=FALSE);
-dt_scores=read.table("cadscores", header=TRUE, stringsAsFactors=FALSE);
+dt_scores=read.table("scores", header=TRUE, stringsAsFactors=FALSE);
 
 dt_scores=dt_scores[which(is.element(dt_scores$model1, dt_models$model) & is.element(dt_scores$model2, dt_models$model)),];
 
@@ -91,11 +96,11 @@ EOF
 
 cd - &> /dev/null
 
-OUTDIR="./output/consensus_cadscores/$QAGROUPSSET/$TARGETNAME"
+OUTDIR="./output/consensus_${SCORENAME}/${QAGROUPSSET}/${TARGETNAME}"
 
 if [ "$QAGROUPSSET" == "all" ]
 then
-	OUTDIR="./output/consensus_cadscores/$TARGETNAME"
+	OUTDIR="./output/consensus_${SCORENAME}/$TARGETNAME"
 fi
 
 mkdir -p "$OUTDIR"
