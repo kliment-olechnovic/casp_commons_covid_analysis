@@ -22,11 +22,11 @@ then
 	exit 1
 fi
 
-CONSENSUSDIR="./output/consensus_cadscores/$QAGROUPSSET/$TARGETNAME"
+CONSENSUSDIR="./output/consensus_${SCORENAME}/${QAGROUPSSET}/${TARGETNAME}"
 
 if [ "$QAGROUPSSET" == "all" ]
 then
-	CONSENSUSDIR="./output/consensus_cadscores/$TARGETNAME"
+	CONSENSUSDIR="./output/consensus_${SCORENAME}/${TARGETNAME}"
 fi
 
 {
@@ -83,11 +83,11 @@ EOF
 
 cd - &> /dev/null
 
-OUTDIR="./output/summaries_of_consensus_cadscores/$QAGROUPSSET"
+OUTDIR="./output/summaries_of_consensus_${SCORENAME}/${QAGROUPSSET}"
 
 if [ "$QAGROUPSSET" == "all" ]
 then
-	OUTDIR="./output/summaries_of_consensus_cadscores"
+	OUTDIR="./output/summaries_of_consensus_${SCORENAME}"
 fi
 
 mkdir -p "$OUTDIR"
