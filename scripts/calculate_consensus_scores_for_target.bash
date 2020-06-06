@@ -143,7 +143,7 @@ Before the analysis, the input data was pruned by doing the following:
   Duplicated models were removed based on the CAD-score threshold of 0.8.
 </li>
 <li>
-  The set of QA models was pruned to remove repeating variations of methods: the number of QA methods was reduced from 30 to 23.
+  The set of QA methods was pruned to remove repeating variations of methods: the number of QA methods was reduced from 30 to 23.
 </li>
 </ul>
 The above prunning steps had a very small effect on the final results.
