@@ -126,10 +126,16 @@ tr:hover {background-color:#ccccff;}
 
 <body>
 
+<a href='../index.html'>output</a> / <a href='index.html'>summaries_of_consensus__SCORENAME_</a> / _TARGET_
+
 <h2>_TARGET_</h2>
 
 <p>
 This table contains consensus scores for models that were ranked highly by QA methods.
+</p>
+
+<p>
+Before the analysis, duplicated models were removed based on the CAD-score threshold of 0.8.
 </p>
 
 <p>
@@ -143,15 +149,11 @@ For each 'cs_topN' column the following computations were performed:
   If a model was selected by more than one QA method, it is included multiple times: this way "popular" models gain more weight.
 </li>
 <li>
-  A consensus CAD-score value (average of all pairwise comparisons)
+  A consensus similarity value (average of all pairwise comparisons)
   was calculated for every model from the bundle.
   Zero values were assigned to models than were not in the bundle.
 </li>
 </ul>
-</p>
-
-<p>
-Similar analysis can be done using lDDT and, considering that lDDT and CAD-score correlate well, results should be similar.
 </p>
 
 <p>
@@ -183,6 +185,7 @@ cat << 'EOF'
 EOF
 } \
 | sed "s|_TARGET_|${TARGETNAME}|" \
+| sed "s|_SCORENAME_|${SCORENAME}|" \
 | sed "s|_all_|${QAGROUPSSET}|" \
 > "${OUTDIR}/${TARGETNAME}.html"
 

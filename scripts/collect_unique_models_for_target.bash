@@ -33,11 +33,11 @@ model_representatives=c();
 for(model in models)
 {
 	sdt_scores1=dt_scores[which(dt_scores$model1==model),];
-	sdt_scores1=sdt_scores1[which(sdt_scores1$score>0.90),];
+	sdt_scores1=sdt_scores1[which(sdt_scores1$score>0.80),];
 	sdt_models1=sdt_scores1$model2;
 	
 	sdt_scores2=dt_scores[which(dt_scores$model2==model),];
-	sdt_scores2=sdt_scores2[which(sdt_scores2$score>0.90),];
+	sdt_scores2=sdt_scores2[which(sdt_scores2$score>0.80),];
 	sdt_models2=sdt_scores2$model1;
 	
 	model_representatives=c(model_representatives, sort(intersect(sdt_models1, sdt_models2))[1]);

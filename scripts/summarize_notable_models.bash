@@ -49,6 +49,8 @@ tr:hover {background-color:#ccccff;}
 
 <body>
 
+<a href='../index.html'>output</a> / <a href='index.html'>summaries_of_consensus__SCORENAME_</a> / notable_models_for__RUNMODE__targets
+
 <h1>Notable models for _RUNMODE_ targets</h1>
 
 <p>
@@ -138,5 +140,6 @@ cat << 'EOF'
 EOF
 } \
 | sed "s|_RUNMODE_|${RUNMODE}|" \
+| sed "s|_SCORENAME_|${SCORENAME}|" \
 > "./output/summaries_of_consensus_${SCORENAME}/notable_models_for_${RUNMODE}_targets.html"
 

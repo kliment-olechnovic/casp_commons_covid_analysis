@@ -30,6 +30,14 @@ then
 	exit 1
 fi
 
+UNIQUEMODELSFILE="./output/sets_of_unique_models/${TARGETNAME}.txt"
+
+if [ ! -s "$UNIQUEMODELSFILE" ]
+then
+	echo >&2 "Error: missing unique models set file '$UNIQUEMODELSFILE'"
+	exit 1
+fi
+
 export LC_ALL=C
 
 find ./input/qa_submissions/ -type f -not -empty \
@@ -42,6 +50,7 @@ do
 	then
 		cat "${TABLEFILE}" \
 		| egrep "^${TARGETNAME}" \
+		| grep -f "$UNIQUEMODELSFILE" \
 		| awk '{print $1 " " (0-$2)}' \
 		| sort -n -k2,2 \
 		| head -n "$TOPNUM"
