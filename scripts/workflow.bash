@@ -49,5 +49,7 @@ do
 	./scripts/summarize_notable_models.bash "$SCORENAME" domain
 	./scripts/summarize_notable_models.bash "$SCORENAME" full
 	./scripts/summarize_notable_models.bash "$SCORENAME" full_x2
+	
+	./scripts/plot_histogram_of_consensus_scores.bash "$SCORENAME"
 done
 
