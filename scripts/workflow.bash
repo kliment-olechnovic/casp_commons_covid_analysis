@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ "$1" == "clean" ]
+then
+	rm -r ./output/consensus_cadscores
+	rm -r ./output/consensus_lddts
+	rm -r ./output/sets_of_unique_models
+fi
+
 readonly TMPLDIR=$(mktemp -d)
 trap "rm -r $TMPLDIR" EXIT
 
