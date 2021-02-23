@@ -35,8 +35,19 @@ trap "rm -r $TMPLDIR" EXIT
 {
 echo "model weight"
 ./scripts/print_top_selected_models_for_target.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM"
-}
+} \
 > "$TMPLDIR/raw_models"
+
+{
+echo "model1 model2 score"
+cat "./output/${SCORENAME}/all_${SCORENAME}" \
+| egrep "^${TARGETNAME}TS"
+} \
+> "$TMPLDIR/scores"
+
+
+cd "$TMPLDIR"
+
 
 R --vanilla > /dev/null << 'EOF'
 dt=read.table("raw_models", header=TRUE, stringsAsFactors=FALSE);
@@ -53,15 +64,6 @@ result=data.frame(model=models, count=model_counts, coef=model_coefs, stringsAsF
 write.table(result, file="models", quote=FALSE, row.names=FALSE);
 EOF
 
-{
-echo "model1 model2 score"
-
-cat "./output/${SCORENAME}/all_${SCORENAME}" \
-| egrep "^${TARGETNAME}TS"
-} \
-> "$TMPLDIR/scores"
-
-cd "$TMPLDIR"
 
 R --vanilla > /dev/null << 'EOF'
 
@@ -107,7 +109,9 @@ write.table(dt_models[,c("model", "consensus_score")], file="result", quote=FALS
 
 EOF
 
+
 cd - &> /dev/null
+
 
 OUTDIR="./output/consensus_${SCORENAME}/${QAGROUPSSET}/${TARGETNAME}"
 
