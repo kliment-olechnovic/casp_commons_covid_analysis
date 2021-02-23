@@ -40,23 +40,27 @@ fi
 
 export LC_ALL=C
 
-find ./input/qa_submissions/ -type f -not -empty \
-| grep "/${TARGETNAME}QA" \
-| grep -f "$QAGROUPSSETFILE" \
-| while read TABLEFILE
+{
+cat "$QAGROUPSSETFILE" \
+| while read QAGROUPID REDUNDANCYCOEF
 do
-	MCOUNT="$(cat "${TABLEFILE}" | egrep "^${TARGETNAME}" | wc -l)"
-	if [ "$MCOUNT" -gt 20 ]
+	TABLEFILE="./input/qa_submissions/${TARGETNAME}${QAGROUPID}_2"
+	if [ -s "$TABLEFILE" ]
 	then
-		cat "${TABLEFILE}" \
-		| egrep "^${TARGETNAME}" \
-		| grep -f "$UNIQUEMODELSFILE" \
-		| awk '{print $1 " " (0-$2)}' \
-		| sort -n -k2,2 \
-		| head -n "$TOPNUM"
+		MCOUNT="$(cat "${TABLEFILE}" | egrep "^${TARGETNAME}" | wc -l)"
+		if [ "$MCOUNT" -gt 20 ]
+		then
+			cat "${TABLEFILE}" \
+			| egrep "^${TARGETNAME}" \
+			| grep -f "$UNIQUEMODELSFILE" \
+			| awk '{print $1 " " (0-$2)}' \
+			| sort -n -k2,2 \
+			| head -n "$TOPNUM" \
+			| sed "s/^/${REDUNDANCYCOEF} /"
+		fi
 	fi
-done \
-| awk '{print $1}' \
+done
+} \
+| awk '{print $2 " " $1}' \
 | sort
-
 

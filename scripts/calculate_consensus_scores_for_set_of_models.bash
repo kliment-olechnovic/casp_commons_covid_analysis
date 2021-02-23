@@ -33,14 +33,25 @@ readonly TMPLDIR=$(mktemp -d)
 trap "rm -r $TMPLDIR" EXIT
 
 {
-echo "model count"
+echo "model weight"
+./scripts/print_top_selected_models_for_target.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM"
+}
+> "$TMPLDIR/raw_models"
 
-./scripts/print_top_selected_models_for_target.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM" \
-| sort \
-| uniq -c \
-| awk '{print $2 " " $1}'
-} \
-> "$TMPLDIR/models"
+R --vanilla > /dev/null << 'EOF'
+dt=read.table("raw_models", header=TRUE, stringsAsFactors=FALSE);
+models=union(dt$model, dt$model);
+N=length(models);
+model_counts=rep(0, N);
+model_coefs=rep(0, N);
+for(i in 1:N)
+{
+	model_counts[i]=length(which(dt$model==models[i]));
+	model_coefs[i]=dt$weight[which(dt$model==models[i])[1]];
+}
+result=data.frame(model=models, count=model_counts, coef=model_coefs, stringsAsFactors=FALSE);
+write.table(result, file="models", quote=FALSE, row.names=FALSE);
+EOF
 
 {
 echo "model1 model2 score"
@@ -83,6 +94,8 @@ for(i in 1:n_models)
 	
 	self_sel=which(sdt_scores_weighted$model==model);
 	sdt_scores_weighted$count[self_sel]=sdt_scores_weighted$count[self_sel]-1;
+	
+	sdt_scores_weighted$count=sdt_scores_weighted$count*sdt_scores_weighted$coef;
 	
 	consensus_scores[i]=sum(sdt_scores_weighted$score*sdt_scores_weighted$count)/sum(sdt_scores_weighted$count);
 }
