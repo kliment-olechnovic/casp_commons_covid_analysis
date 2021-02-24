@@ -54,13 +54,11 @@ dt=read.table("raw_models", header=TRUE, stringsAsFactors=FALSE);
 models=union(dt$model, dt$model);
 N=length(models);
 model_counts=rep(0, N);
-model_coefs=rep(0, N);
 for(i in 1:N)
 {
-	model_counts[i]=length(which(dt$model==models[i]));
-	model_coefs[i]=dt$weight[which(dt$model==models[i])[1]];
+	model_counts[i]=sum(dt$weight[which(dt$model==models[i])]);
 }
-result=data.frame(model=models, count=model_counts, coef=model_coefs, stringsAsFactors=FALSE);
+result=data.frame(model=models, count=model_counts, stringsAsFactors=FALSE);
 write.table(result, file="models", quote=FALSE, row.names=FALSE);
 EOF
 
@@ -95,9 +93,7 @@ for(i in 1:n_models)
 	sdt_scores_weighted=merge(sdt_scores, dt_models);
 	
 	self_sel=which(sdt_scores_weighted$model==model);
-	sdt_scores_weighted$count[self_sel]=sdt_scores_weighted$count[self_sel]-1;
-	
-	sdt_scores_weighted$count=sdt_scores_weighted$count*sdt_scores_weighted$coef;
+	sdt_scores_weighted$count[self_sel]=max(c(0, sdt_scores_weighted$count[self_sel]-1));
 	
 	consensus_scores[i]=sum(sdt_scores_weighted$score*sdt_scores_weighted$count)/sum(sdt_scores_weighted$count);
 }
