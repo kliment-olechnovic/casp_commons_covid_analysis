@@ -7,6 +7,8 @@ then
 	rm -r ./output/sets_of_unique_models
 fi
 
+./scripts/print_qa_groups_info.bash > ./output/qa_groups_info.txt
+
 readonly TMPLDIR=$(mktemp -d)
 trap "rm -r $TMPLDIR" EXIT
 
