@@ -8,6 +8,14 @@ then
 	exit 1
 fi
 
+if [ "$RUNMODE" == "all" ]
+then
+	$0 full
+	$0 full_x2
+	$0 domain
+	exit 0
+fi
+
 if [ "$RUNMODE" != "domain" ] && [ "$RUNMODE" != "full" ] && [ "$RUNMODE" != "full_x2" ]
 then
 	echo >&2 "Error: invalid run mode parameter"

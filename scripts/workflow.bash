@@ -55,10 +55,13 @@ do
 	cat "$TMPLDIR/targets" \
 	| xargs -L 1 ./scripts/calculate_consensus_scores_for_target.bash "$SCORENAME" all
 	
-	./scripts/summarize_notable_models.bash "$SCORENAME" domain
-	./scripts/summarize_notable_models.bash "$SCORENAME" full
-	./scripts/summarize_notable_models.bash "$SCORENAME" full_x2
+	for SETNAME in domain full full_x2
+	do
+		./scripts/summarize_notable_models.bash "$SCORENAME" "$SETNAME"
+	done
 	
 	./scripts/plot_histogram_of_consensus_scores.bash "$SCORENAME"
+	
+	./scripts/plot_targets_info.bash "$SCORENAME"
 done
 

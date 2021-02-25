@@ -46,7 +46,7 @@ for(i in 1:nrow(dt))
 sel_top1=which(dt$top_1==max(dt$top_1));
 sel_auc_top=which(dt$auc_top==max(dt$auc_top));
 
-png("plot.png", width=7, height=4, units="in", res=200);
+png("plot.png", width=7, height=4, units="in", res=150);
 plot(x=1:M, y=((1:M)/M), ylim=valrange, type="n", xaxt="n", xlab="", ylab="Consensus score", main="_TITLE_");
 axis(1, at=1:M, labels=FALSE);
 text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
@@ -88,7 +88,7 @@ dev.off();
 EOF
 } \
 | sed "s|_TITLE_|$(basename $INFILE .txt)|" \
-| R --vanilla
+| R --vanilla > /dev/null
 
 cd - &> /dev/null
 
