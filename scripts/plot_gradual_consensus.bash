@@ -35,7 +35,7 @@ M=length(colnames(dt))-2;
 valnames=colnames(dt)[2:(M+1)];
 allvals=as.vector(as.matrix(dt[,valnames]));
 allvals=allvals[which(allvals>0)];
-valrange=c(min(allvals), max(allvals));
+valrange=c(min(c(allvals, 0.2)), max(c(allvals, 0.65)));
 
 dt$auc_top=0;
 for(i in 1:nrow(dt))
@@ -50,6 +50,7 @@ png("plot.png", width=7, height=4, units="in", res=150);
 plot(x=1:M, y=((1:M)/M), ylim=valrange, type="n", xaxt="n", xlab="", ylab="Consensus score", main="_TITLE_");
 axis(1, at=1:M, labels=FALSE);
 text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
+points(c(-1000, 1000), c(0.6, 0.6), type="l");
 for(category in c(0, 2, 1))
 {
 	col="gray";

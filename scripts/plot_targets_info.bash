@@ -24,7 +24,7 @@ do
 	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}.txt" \
 	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}_scores.png"
 	
-	echo "<img src='${TARGETNAME}_scores.png'><br>"
+	echo "<a href='${TARGETNAME}_scores.png'><img src='${TARGETNAME}_scores.png' width='300'></a>"
 done
 
 cat << 'EOF'
