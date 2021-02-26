@@ -1,0 +1,76 @@
+<html>
+
+<body>
+
+<a href='../index.html'>output</a> / summaries_of_consensus__SCORENAME_
+
+<p>
+Below are links to tables containing consensus scores for models that were ranked highly by <a href='../qa_groups_info.txt'>QA methods</a>.
+</p>
+
+<p>
+To interpret the significance of consensus score values, take a look at <a href='histogram.png'>the histogram of all consensus scores</a>.
+<br>
+Basically, consensus scores around 0.6 are relatively significant.
+</p>
+
+<ul>
+<li><a href='C1901.html'>C1901</a></li>
+<li><a href='C1902.html'>C1902</a></li>
+<li><a href='C1903.html'>C1903</a></li>
+<li><a href='C1904.html'>C1904</a></li>
+<li><a href='C1905.html'>C1905</a></li>
+<li><a href='C1906.html'>C1906</a></li>
+<li><a href='C1907.html'>C1907</a></li>
+<li><a href='C1908.html'>C1908</a></li>
+<li><a href='C1909.html'>C1909</a></li>
+<li><a href='C1910.html'>C1910</a></li>
+</ul>
+
+<ul>
+<li><a href='C1901d1.html'>C1901d1</a></li>
+<li><a href='C1901d2.html'>C1901d2</a></li>
+<li><a href='C1901d3.html'>C1901d3</a></li>
+<li><a href='C1902d1.html'>C1902d1</a></li>
+<li><a href='C1902d2.html'>C1902d2</a></li>
+<li><a href='C1902d3.html'>C1902d3</a></li>
+<li><a href='C1903d1.html'>C1903d1</a></li>
+<li><a href='C1903d2.html'>C1903d2</a></li>
+<li><a href='C1904d1.html'>C1904d1</a></li>
+<li><a href='C1904d2.html'>C1904d2</a></li>
+<li><a href='C1904d3.html'>C1904d3</a></li>
+<li><a href='C1905d1.html'>C1905d1</a></li>
+<li><a href='C1905d2.html'>C1905d2</a></li>
+<li><a href='C1906d1.html'>C1906d1</a></li>
+<li><a href='C1906d2.html'>C1906d2</a></li>
+</ul>
+
+<ul>
+<li><a href='C1901x2.html'>C1901x2</a></li>
+<li><a href='C1902x2.html'>C1902x2</a></li>
+<li><a href='C1903x2.html'>C1903x2</a></li>
+<li><a href='C1904x2.html'>C1904x2</a></li>
+<li><a href='C1905x2.html'>C1905x2</a></li>
+<li><a href='C1906x2.html'>C1906x2</a></li>
+<li><a href='C1908x2.html'>C1908x2</a></li>
+</ul>
+
+<ul>
+<li><a href='notable_models_for_full_targets.html'>Notable models for full targets</a></li>
+</ul>
+
+<ul>
+<li><a href='notable_models_for_domain_targets.html'>Notable models for domain targets</a></li>
+</ul>
+
+<ul>
+<li><a href='notable_models_for_full_x2_targets.html'>Notable models for full_x2 targets</a></li>
+</ul>
+
+<ul>
+<li><a href='plots.html'>Plots</a></li>
+</ul>
+
+</body>
+
+</html>

@@ -60,6 +60,8 @@ do
 		./scripts/summarize_notable_models.bash "$SCORENAME" "$SETNAME"
 	done
 	
+	cat ./output/support/template_summaries_index | sed "s|_SCORENAME_|${SCORENAME}|" > "./output/summaries_of_consensus_${SCORENAME}/index.html"
+	
 	./scripts/plot_histogram_of_consensus_scores.bash "$SCORENAME"
 	
 	./scripts/plot_targets_info.bash "$SCORENAME"

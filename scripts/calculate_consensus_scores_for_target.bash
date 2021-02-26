@@ -107,7 +107,7 @@ cat << 'EOF'
 
 <head>
 
-<script src="sorttable.js"></script>
+<script src="../support/sorttable.js"></script>
 
 <style>
 
