@@ -34,7 +34,12 @@ trap "rm -r $TMPLDIR" EXIT
 
 {
 echo "model weight"
-./scripts/print_top_selected_models_for_target.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM"
+if [ "$TOPNUM" == "999" ]
+then
+	cat "./output/sets_of_unique_models/${TARGETNAME}.txt" | awk '{print $1 " 1"}'
+else
+	./scripts/print_top_selected_models_for_target.bash "$QAGROUPSSET" "$TARGETNAME" "$TOPNUM"
+fi
 } \
 > "$TMPLDIR/raw_models"
 

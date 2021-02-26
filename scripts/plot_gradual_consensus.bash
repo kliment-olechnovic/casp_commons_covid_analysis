@@ -19,7 +19,7 @@ readonly TMPLDIR=$(mktemp -d)
 trap "rm -r $TMPLDIR" EXIT
 
 {
-cat "$INFILE" | head -1 |sed 's/ cs_top/ top_/g' | sed 's/$/ notable/'
+cat "$INFILE" | head -1 |sed 's/ cs_top/ top_/g' |sed 's/ cs_all/ all/g' | sed 's/$/ notable/'
 cat "$INFILE" | tail -n +2 | grep "\[" | sed 's/$/ 1/'
 cat "$INFILE" | tail -n +2 | grep -v "\[" | sed 's/$/ 0/'
 } \
