@@ -52,12 +52,14 @@ for(i in 1:nrow(dt))
 sel_top1=order(0-dt$top_1, 0-dt$auc_top5, 0-dt$auc_top10)[1];
 sel_auc_top5=order(0-dt$auc_top5, 0-dt$top_1, 0-dt$auc_top10)[1];
 sel_auc_top10=order(0-dt$auc_top10, 0-dt$top_1, 0-dt$auc_top5)[1];
+sel_overall=order(0-dt$all, 0-dt$auc_top10)[1];
 
 summary=data.frame(
   target="_TITLE_",
   max_top1=max(dt$top_1), model_max_top1=dt$model[sel_top1],
   max_avg_top5=max(dt$auc_top5)/5, model_max_avg_top5=dt$model[sel_auc_top5],
   max_avg_top10=max(dt$auc_top10)/10, model_max_avg_top10=dt$model[sel_auc_top10],
+  max_overall=max(dt$all), model_max_overall=dt$model[sel_overall],
   stringsAsFactors=FALSE);
 write.table(summary, file="summary.txt", quote=FALSE, row.names=FALSE);
 
@@ -66,7 +68,7 @@ plot(x=1:M, y=((1:M)/M), ylim=valrange, type="n", xaxt="n", xlab="", ylab="Conse
 axis(1, at=1:M, labels=FALSE);
 text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
 points(c(-1000, 1000), c(0.6, 0.6), type="l");
-for(category in c(0, 3, 2, 1))
+for(category in c(0, 2, 1))
 {
 	allowed=TRUE;
 	col="gray";
@@ -84,16 +86,7 @@ for(category in c(0, 3, 2, 1))
 	
 	if(category==2)
 	{
-		allowed=(sel_auc_top5!=sel_top1);
-		col="magenta";
-		lwd=2;
-		lty=2;
-		sdt=dt[sel_auc_top5,];
-	}
-	
-	if(category==3)
-	{
-		allowed=(sel_auc_top10!=sel_top1 && sel_auc_top10!=sel_auc_top5);
+		allowed=(sel_auc_top10!=sel_top1);
 		col="blue";
 		lwd=2;
 		lty=3;
