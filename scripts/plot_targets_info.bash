@@ -9,6 +9,22 @@ then
 fi
 
 {
+./scripts/list_targets.bash all \
+| sort \
+| while read TARGETNAME
+do
+	./scripts/plot_gradual_consensus.bash \
+	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}.txt" \
+	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}_scores.png"
+done
+} \
+| awk '{if(NR==1 || $1!="target"){print $0}}' \
+| column -t \
+> "./output/summaries_of_consensus_${SCORENAME}/top_model_selections.txt"
+
+./scripts/plot_top_model_selections.bash "./output/summaries_of_consensus_${SCORENAME}/top_model_selections.txt" "./output/summaries_of_consensus_${SCORENAME}/top_model_selections.png"
+
+{
 cat << 'EOF'
 <html>
 <head>
@@ -20,12 +36,10 @@ EOF
 | sort \
 | while read TARGETNAME
 do
-	./scripts/plot_gradual_consensus.bash \
-	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}.txt" \
-	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}_scores.png"
-	
 	echo "<a href='${TARGETNAME}_scores.png'><img src='${TARGETNAME}_scores.png' width='300'></a>"
 done
+
+echo "<br><a href='top_model_selections.png'><img src='top_model_selections.png' width='300'></a>"
 
 cat << 'EOF'
 </body>

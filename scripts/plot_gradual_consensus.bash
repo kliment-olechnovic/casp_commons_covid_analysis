@@ -53,6 +53,14 @@ sel_top1=order(0-dt$top_1, 0-dt$auc_top5, 0-dt$auc_top10)[1];
 sel_auc_top5=order(0-dt$auc_top5, 0-dt$top_1, 0-dt$auc_top10)[1];
 sel_auc_top10=order(0-dt$auc_top10, 0-dt$top_1, 0-dt$auc_top5)[1];
 
+summary=data.frame(
+  target="_TITLE_",
+  max_top1=max(dt$top_1), model_max_top1=dt$model[sel_top1],
+  max_avg_top5=max(dt$auc_top5)/5, model_max_avg_top5=dt$model[sel_auc_top5],
+  max_avg_top10=max(dt$auc_top10)/10, model_max_avg_top10=dt$model[sel_auc_top10],
+  stringsAsFactors=FALSE);
+write.table(summary, file="summary.txt", quote=FALSE, row.names=FALSE);
+
 png("plot.png", width=7, height=4, units="in", res=150);
 plot(x=1:M, y=((1:M)/M), ylim=valrange, type="n", xaxt="n", xlab="", ylab="Consensus score", main="_TITLE_");
 axis(1, at=1:M, labels=FALSE);
@@ -108,12 +116,12 @@ for(category in c(0, 3, 2, 1))
 dev.off();
 EOF
 } \
-| sed "s|_TITLE_|$(basename $INFILE .txt)|" \
+| sed "s|_TITLE_|$(basename $INFILE .txt)|g" \
 | R --vanilla > /dev/null
 
 cd - &> /dev/null
 
 mv "$TMPLDIR/plot.png" "$OUTFILE"
 
-
+cat "$TMPLDIR/summary.txt"
 
