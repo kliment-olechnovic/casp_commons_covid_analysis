@@ -37,27 +37,35 @@ allvals=as.vector(as.matrix(dt[,valnames]));
 allvals=allvals[which(allvals>0)];
 valrange=c(min(c(allvals, 0.2)), max(c(allvals, 0.65)));
 
-dt$auc_top=0;
+dt$auc_top5=0;
 for(i in 1:nrow(dt))
 {
-	dt$auc_top[i]=sum(as.vector(dt[i, valnames[1:10]]));
+	dt$auc_top5[i]=sum(as.vector(dt[i, valnames[1:5]]));
 }
 
-sel_top1=which(dt$top_1==max(dt$top_1));
-sel_auc_top=which(dt$auc_top==max(dt$auc_top));
+dt$auc_top10=0;
+for(i in 1:nrow(dt))
+{
+	dt$auc_top10[i]=sum(as.vector(dt[i, valnames[1:10]]));
+}
+
+sel_top1=order(0-dt$top_1, 0-dt$auc_top5, 0-dt$auc_top10)[1];
+sel_auc_top5=order(0-dt$auc_top5, 0-dt$top_1, 0-dt$auc_top10)[1];
+sel_auc_top10=order(0-dt$auc_top10, 0-dt$top_1, 0-dt$auc_top5)[1];
 
 png("plot.png", width=7, height=4, units="in", res=150);
 plot(x=1:M, y=((1:M)/M), ylim=valrange, type="n", xaxt="n", xlab="", ylab="Consensus score", main="_TITLE_");
 axis(1, at=1:M, labels=FALSE);
 text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
 points(c(-1000, 1000), c(0.6, 0.6), type="l");
-for(category in c(0, 2, 1))
+for(category in c(0, 3, 2, 1))
 {
+	allowed=TRUE;
 	col="gray";
 	lwd=1;
 	lty=1;
 	sdt=dt;
-		
+	
 	if(category==1)
 	{
 		col="red";
@@ -68,21 +76,33 @@ for(category in c(0, 2, 1))
 	
 	if(category==2)
 	{
-		col="purple";
+		allowed=(sel_auc_top5!=sel_top1);
+		col="magenta";
 		lwd=2;
-		lty=3;
-		sdt=dt[sel_auc_top,];
+		lty=2;
+		sdt=dt[sel_auc_top5,];
 	}
 	
-	N=nrow(sdt);
-	for(i in 1:N)
+	if(category==3)
 	{
-		x=1:M;
-		y=as.vector(sdt[i, valnames]);
-		sel=which(y>0);
-		x=x[sel];
-		y=y[sel];
-		points(x, y, type="l", col=col, lwd=lwd, lty=lty);
+		allowed=(sel_auc_top10!=sel_top1 && sel_auc_top10!=sel_auc_top5);
+		col="blue";
+		lwd=2;
+		lty=3;
+		sdt=dt[sel_auc_top10,];
+	}
+	
+	if(allowed)
+	{
+		for(i in 1:nrow(sdt))
+		{
+			x=1:M;
+			y=as.vector(sdt[i, valnames]);
+			sel=which(y>0);
+			x=x[sel];
+			y=y[sel];
+			points(x, y, type="l", col=col, lwd=lwd, lty=lty);
+		}
 	}
 }
 dev.off();
