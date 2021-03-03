@@ -37,30 +37,27 @@ allvals=as.vector(as.matrix(dt[,valnames]));
 allvals=allvals[which(allvals>0)];
 valrange=c(min(c(allvals, 0.2)), max(c(allvals, 0.65)));
 
-dt$auc_top5=0;
+dt$max_top10=0;
 for(i in 1:nrow(dt))
 {
-	dt$auc_top5[i]=sum(as.vector(dt[i, valnames[1:5]]));
+	dt$max_top10[i]=max(as.vector(dt[i, valnames[1:10]]));
 }
 
-dt$auc_top10=0;
-for(i in 1:nrow(dt))
-{
-	dt$auc_top10[i]=sum(as.vector(dt[i, valnames[1:10]]));
-}
-
-sel_top1=order(0-dt$top_1, 0-dt$auc_top5, 0-dt$auc_top10)[1];
-sel_auc_top5=order(0-dt$auc_top5, 0-dt$top_1, 0-dt$auc_top10)[1];
-sel_auc_top10=order(0-dt$auc_top10, 0-dt$top_1, 0-dt$auc_top5)[1];
-sel_overall=order(0-dt$all, 0-dt$auc_top10)[1];
+sel_top1=order(0-dt$top_1, 0-dt$max_top10)[1];
+sel_max_top10=order(0-dt$max_top10, 0-dt$top_1)[1];
+sel_complete=order(0-dt$all, 0-dt$max_top10, 0-dt$top_1)[1];
 
 summary=data.frame(
   target="_TITLE_",
   max_top1=max(dt$top_1), model_max_top1=dt$model[sel_top1],
-  max_avg_top5=max(dt$auc_top5)/5, model_max_avg_top5=dt$model[sel_auc_top5],
-  max_avg_top10=max(dt$auc_top10)/10, model_max_avg_top10=dt$model[sel_auc_top10],
-  max_overall=max(dt$all), model_max_overall=dt$model[sel_overall],
+  max_max_top10=max(dt$max_top10), model_max_max_top10=dt$model[sel_max_top10],
+  max_complete=max(dt$all), model_max_complete=dt$model[sel_complete],
+  same_sel_top1_and_top10=0,
   stringsAsFactors=FALSE);
+if(summary$model_max_top1==summary$model_max_max_top10)
+{
+	summary$same_sel_top1_and_top10=1;
+}
 write.table(summary, file="summary.txt", quote=FALSE, row.names=FALSE);
 
 png("plot.png", width=7, height=4, units="in", res=150);
@@ -86,11 +83,11 @@ for(category in c(0, 2, 1))
 	
 	if(category==2)
 	{
-		allowed=(sel_auc_top10!=sel_top1);
+		allowed=(sel_max_top10!=sel_top1);
 		col="blue";
 		lwd=2;
 		lty=3;
-		sdt=dt[sel_auc_top10,];
+		sdt=dt[sel_max_top10,];
 	}
 	
 	if(allowed)
