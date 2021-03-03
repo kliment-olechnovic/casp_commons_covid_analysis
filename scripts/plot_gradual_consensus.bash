@@ -102,6 +102,11 @@ for(category in c(0, 2, 1))
 			sel=which(y>0);
 			x=x[sel];
 			y=y[sel];
+			if(length(y)==1)
+			{
+				x=c(x-0.2, x);
+				y=c(y, y);
+			}
 			points(x, y, type="l", col=col, lwd=lwd, lty=lty);
 		}
 	}
