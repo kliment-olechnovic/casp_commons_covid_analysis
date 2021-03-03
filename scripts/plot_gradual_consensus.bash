@@ -37,26 +37,33 @@ allvals=as.vector(as.matrix(dt[,valnames]));
 allvals=allvals[which(allvals>0)];
 valrange=c(min(c(allvals, 0.2)), max(c(allvals, 0.65)));
 
-dt$max_top10=0;
+dt$max_top_1_to_1=0;
 for(i in 1:nrow(dt))
 {
-	dt$max_top10[i]=max(as.vector(dt[i, valnames[1:10]]));
+	dt$max_top_1_to_1[i]=max(as.numeric(as.vector(dt[i, valnames[1:1]])));
 }
 
-sel_top1=order(0-dt$top_1, 0-dt$max_top10)[1];
-sel_max_top10=order(0-dt$max_top10, 0-dt$top_1)[1];
-sel_complete=order(0-dt$all, 0-dt$max_top10, 0-dt$top_1)[1];
+dt$max_top_1_to_10=0;
+for(i in 1:nrow(dt))
+{
+	dt$max_top_1_to_10[i]=max(as.numeric(as.vector(dt[i, valnames[1:10]])));
+}
+
+sel_max_top_1_to_1=order(0-dt$max_top_1_to_1, 0-dt$max_top_1_to_10)[1];
+sel_max_top_1_to_10=order(0-dt$max_top_1_to_10, 0-dt$max_top_1_to_1)[1];
+sel_complete=order(0-dt$all, 0-dt$max_top_1_to_10, 0-dt$max_top_1_to_1)[1];
 
 summary=data.frame(
   target="_TITLE_",
-  max_top1=max(dt$top_1), model_max_top1=dt$model[sel_top1],
-  max_max_top10=max(dt$max_top10), model_max_max_top10=dt$model[sel_max_top10],
+  number_of_models=nrow(dt),
+  max_max_top_1_to_1=max(dt$max_top_1_to_1), model_max_max_top_1_to_1=dt$model[sel_max_top_1_to_1],
+  max_max_top_1_to_10=max(dt$max_top_1_to_10), model_max_max_top_1_to_10=dt$model[sel_max_top_1_to_10],
   max_complete=max(dt$all), model_max_complete=dt$model[sel_complete],
-  same_sel_top1_and_top10=0,
+  same_sel=0,
   stringsAsFactors=FALSE);
-if(summary$model_max_top1==summary$model_max_max_top10)
+if(summary$model_max_max_top_1_to_1==summary$model_max_max_top_1_to_10)
 {
-	summary$same_sel_top1_and_top10=1;
+	summary$same_sel=1;
 }
 write.table(summary, file="summary.txt", quote=FALSE, row.names=FALSE);
 
@@ -78,16 +85,16 @@ for(category in c(0, 2, 1))
 		col="red";
 		lwd=2;
 		lty=1;
-		sdt=dt[sel_top1,];
+		sdt=dt[sel_max_top_1_to_10,];
 	}
 	
 	if(category==2)
 	{
-		allowed=(sel_max_top10!=sel_top1);
+		allowed=(sel_max_top_1_to_1!=sel_max_top_1_to_10);
 		col="blue";
 		lwd=2;
 		lty=3;
-		sdt=dt[sel_max_top10,];
+		sdt=dt[sel_max_top_1_to_1,];
 	}
 	
 	if(allowed)

@@ -25,13 +25,13 @@ cd "$TMPLDIR"
 {
 cat << 'EOF'
 raw_dt=read.table("data", header=TRUE, stringsAsFactors=FALSE);
-raw_dt=raw_dt[order(0-raw_dt$max_max_top10),];
-dt=raw_dt[,c("max_top1", "max_max_top10")];
+raw_dt=raw_dt[order(0-pmax(raw_dt$max_max_top_1_to_1, raw_dt$max_max_top_1_to_10)),];
+dt=raw_dt[,c("max_max_top_1_to_1", "max_max_top_1_to_10")];
 rownames(dt)=raw_dt$target;
 dt=t(as.matrix(dt));
 png("plot.png", width=7, height=14, units="in", res=150);
 par(mar=c(5,6,1,1));
-barplot(dt, beside=TRUE, horiz=TRUE, las=1, legend.text=c("max. top 1", "max. max. top 1-10"), args.legend=list(x="topright"), xlab="Max. consensus score");
+barplot(dt, beside=TRUE, horiz=TRUE, las=1, legend.text=c("max. top 1 to 1", "max. top 1 to 10"), args.legend=list(x="topright"), xlab="Max. consensus score");
 points(c(0.6, 0.6), c(0, nrow(raw_dt)*4+1), type="l");
 dev.off();
 EOF
