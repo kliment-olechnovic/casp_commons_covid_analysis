@@ -49,8 +49,15 @@ for(i in 1:nrow(dt))
 	dt$max_top_1_to_10[i]=max(as.numeric(as.vector(dt[i, valnames[1:10]])));
 }
 
+dt$mean_top_1_to_5=0;
+for(i in 1:nrow(dt))
+{
+	dt$mean_top_1_to_5[i]=mean(as.numeric(as.vector(dt[i, valnames[1:5]])));
+}
+
 sel_max_top_1_to_1=order(0-dt$max_top_1_to_1, 0-dt$max_top_1_to_10)[1];
 sel_max_top_1_to_10=order(0-dt$max_top_1_to_10, 0-dt$max_top_1_to_1)[1];
+sel_mean_top_1_to_5=order(0-dt$mean_top_1_to_5, 0-dt$max_top_1_to_10)[1];
 sel_complete=order(0-dt$all, 0-dt$max_top_1_to_10, 0-dt$max_top_1_to_1)[1];
 
 summary=data.frame(
@@ -58,6 +65,7 @@ summary=data.frame(
   number_of_models=nrow(dt),
   max_max_top_1_to_1=max(dt$max_top_1_to_1), model_max_max_top_1_to_1=dt$model[sel_max_top_1_to_1],
   max_max_top_1_to_10=max(dt$max_top_1_to_10), model_max_max_top_1_to_10=dt$model[sel_max_top_1_to_10],
+  max_mean_top_1_to_5=max(dt$mean_top_1_to_5), model_max_mean_top_1_to_5=dt$model[sel_mean_top_1_to_5],
   max_complete=max(dt$all), model_max_complete=dt$model[sel_complete],
   same_sel=0,
   stringsAsFactors=FALSE);
@@ -72,7 +80,7 @@ plot(x=1:M, y=((1:M)/M), ylim=valrange, type="n", xaxt="n", xlab="", ylab="Conse
 axis(1, at=1:M, labels=FALSE);
 text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
 points(c(-1000, 1000), c(0.6, 0.6), type="l");
-for(category in c(0, 2, 1))
+for(category in c(0, 3, 2, 1))
 {
 	allowed=TRUE;
 	col="gray";
@@ -95,6 +103,15 @@ for(category in c(0, 2, 1))
 		lwd=2;
 		lty=3;
 		sdt=dt[sel_max_top_1_to_1,];
+	}
+	
+	if(category==3)
+	{
+		allowed=(sel_mean_top_1_to_5!=sel_max_top_1_to_10 && sel_mean_top_1_to_5!=sel_max_top_1_to_1);
+		col="green";
+		lwd=2;
+		lty=3;
+		sdt=dt[sel_mean_top_1_to_5,];
 	}
 	
 	if(allowed)
