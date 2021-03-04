@@ -47,11 +47,12 @@ C1906x2
 C1908x2
 EOF
 
+cat "$TMPLDIR/targets" \
+| xargs -L 1 ./scripts/collect_unique_models_for_target.bash \
+> "./output/sets_of_unique_models/all_big_clusters"
+
 for SCORENAME in cadscores lddts
 do
-	cat "$TMPLDIR/targets" \
-	| xargs -L 1 ./scripts/collect_unique_models_for_target.bash
-	
 	cat "$TMPLDIR/targets" \
 	| xargs -L 1 ./scripts/calculate_consensus_scores_for_target.bash "$SCORENAME" all
 	

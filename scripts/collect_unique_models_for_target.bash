@@ -43,9 +43,23 @@ for(model in models)
 	model_representatives=c(model_representatives, sort(intersect(sdt_models1, sdt_models2))[1]);
 }
 
-model_representatives=intersect(model_representatives, model_representatives);
+unique_model_representatives=intersect(model_representatives, model_representatives);
+write(unique_model_representatives, file="result", ncolumns=1);
 
-write(model_representatives, file="result", ncolumns=1);
+big_clusters=c();
+for(representative in unique_model_representatives)
+{
+	synonims=models[which(model_representatives==representative)];
+	synonims=setdiff(synonims, unique_model_representatives);
+	if(length(synonims)>0)
+	{
+		big_clusters=c(big_clusters, paste(representative, paste(synonims, collapse=","), sep=" "));
+	}
+}
+if(length(big_clusters)>0)
+{
+	write(big_clusters, file="result_big_clusters", ncolumns=1);
+}
 
 EOF
 
@@ -56,4 +70,10 @@ OUTDIR="./output/sets_of_unique_models"
 mkdir -p "$OUTDIR"
 
 cat "$TMPLDIR/result" > "${OUTDIR}/${TARGETNAME}.txt"
+
+if [ -s "$TMPLDIR/result_big_clusters" ]
+then
+	cat "$TMPLDIR/result_big_clusters"
+	echo
+fi
 
