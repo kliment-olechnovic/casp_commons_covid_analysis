@@ -22,8 +22,6 @@ done
 | column -t \
 > "./output/summaries_of_consensus_${SCORENAME}/top_model_selections.txt"
 
-./scripts/plot_top_model_selections.bash "./output/summaries_of_consensus_${SCORENAME}/top_model_selections.txt" "./output/summaries_of_consensus_${SCORENAME}/top_model_selections.png"
-
 {
 cat << 'EOF'
 <html>
@@ -38,8 +36,6 @@ EOF
 do
 	echo "<a href='${TARGETNAME}_scores.png'><img src='${TARGETNAME}_scores.png' width='300'></a>"
 done
-
-echo "<br><a href='top_model_selections.png'><img src='top_model_selections.png' width='300'></a>"
 
 cat << 'EOF'
 </body>

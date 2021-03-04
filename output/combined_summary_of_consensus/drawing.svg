@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="drawing.svg"
+   inkscape:export-filename="/home/kliment/git/casp_commons_covid_analysis/output/combined_summary_of_consensus/figure_summary_of_consensus_scores.png"
+   inkscape:export-xdpi="150"
+   inkscape:export-ydpi="150">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="271.89693"
+     inkscape:cy="498.38253"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1807"
+     inkscape:window-height="1192"
+     inkscape:window-x="1342"
+     inkscape:window-y="672"
+     inkscape:window-maximized="0"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
+       xlink:href="inmprovement_of_consensus_scores_lddt.png"
+       width="101.6"
+       height="254"
+       preserveAspectRatio="none"
+       id="image944"
+       x="91.733482"
+       y="10.116069" />
+    <image
+       sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
+       xlink:href="inmprovement_of_consensus_scores_cadscore.png"
+       width="101.6"
+       height="254"
+       preserveAspectRatio="none"
+       id="image933"
+       x="16.479755"
+       y="10.116069" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+       id="rect971"
+       width="82.513542"
+       height="10.205359"
+       x="85.68586"
+       y="12.15714" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.17169142px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12929228"
+       x="51.784233"
+       y="15.571425"
+       id="text949"><tspan
+         sodipodi:role="line"
+         id="tspan947"
+         x="51.784233"
+         y="15.571425"
+         style="stroke-width:0.12929228">CAD-score</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.17169142px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12929228"
+       x="126.99097"
+       y="15.571425"
+       id="text949-2"><tspan
+         sodipodi:role="line"
+         id="tspan969"
+         x="126.99097"
+         y="15.571425"
+         style="stroke-width:0.12929228">lDDT</tspan></text>
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke:#000000;stroke-width:0.31367758;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect973"
+       width="13.429682"
+       height="5.0270748"
+       x="84.346611"
+       y="265.80734" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14701748px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738"
+       x="100.67902"
+       y="269.46494"
+       id="text949-4"><tspan
+         sodipodi:role="line"
+         id="tspan1008"
+         x="100.67902"
+         y="269.46494"
+         style="stroke-width:0.1036738">Max. global consensus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14690304px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738"
+       x="100.67902"
+       y="278.73459"
+       id="text949-4-1"><tspan
+         sodipodi:role="line"
+         id="tspan1028"
+         x="100.67902"
+         y="278.73459">Improvement of max. consensus after QA</tspan></text>
+    <rect
+       style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0.31367758;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect973-5"
+       width="13.429682"
+       height="5.0270748"
+       x="84.346611"
+       y="275.077" />
+  </g>
+</svg>

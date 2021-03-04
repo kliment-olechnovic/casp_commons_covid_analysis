@@ -67,3 +67,5 @@ do
 	./scripts/plot_targets_info.bash "$SCORENAME"
 done
 
+./scripts/combine_top_model_selections.bash
+
