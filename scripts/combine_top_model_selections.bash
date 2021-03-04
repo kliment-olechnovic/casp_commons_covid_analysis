@@ -51,6 +51,7 @@ for(target in targets)
 		result=rbind(result, sresult);
 	}
 }
+result=result[order(0-result$max_consensus_cadscore),];
 write.table(result, file="summary.txt", quote=FALSE, row.names=FALSE);
 EOF
 } \
@@ -104,4 +105,59 @@ cat "$TMPLDIR/summary.txt" | column -t > "$OUTDIR/top_model_selections.txt"
 mv "$TMPLDIR/plot1.png" "$OUTDIR/max_consensus_scores.png"
 mv "$TMPLDIR/plot2_cadscore.png" "$OUTDIR/inmprovement_of_consensus_scores_cadscore.png"
 mv "$TMPLDIR/plot2_lddt.png" "$OUTDIR/inmprovement_of_consensus_scores_lddt.png"
+
+{
+cat << 'EOF'
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<th rowspan="2">Target</th>
+<th rowspan="2">Unique models</th>
+<th colspan="2">Max. consensus</th>
+<th rowspan="2">Selected models</th>
+</tr>
+<tr>
+<th>CAD-score</th>
+<th>lDDT</th>
+</tr>
+EOF
+
+cat "$TMPLDIR/summary.txt" \
+| tail -n +2 \
+| awk '{print $1 " " $2 " " $3 " " $4 " " $6}' \
+| while read -r f_target f_models f_max_cadscore f_max_lddt f_selection
+do
+	{
+	echo "<tr>"
+	echo "<td>${f_target}</td>"
+	echo "<td>${f_models}</td>"
+	echo "<td>${f_max_cadscore}</td>"
+	echo "<td>${f_max_lddt}</td>"
+	echo "<td>$(echo ${f_selection} | sed "s/${f_target}TS//g" | sed 's/,/, /g')</td>"
+	echo "</tr>"
+	} | tr '\n' ' '
+	echo
+done
+
+cat << 'EOF'
+</table>
+</body>
+</html>
+EOF
+} \
+> "$OUTDIR/table_top_model_selections.html"
+
 
