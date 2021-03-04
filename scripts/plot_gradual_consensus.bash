@@ -33,9 +33,6 @@ cat << 'EOF'
 dt=read.table("data", header=TRUE, stringsAsFactors=FALSE);
 M=length(colnames(dt))-2;
 valnames=colnames(dt)[2:(M+1)];
-allvals=as.vector(as.matrix(dt[,valnames]));
-allvals=allvals[which(allvals>0)];
-valrange=c(min(c(allvals, 0.2)), max(c(allvals, 0.65)));
 
 dt$max_top_1_to_1=0;
 for(i in 1:nrow(dt))
@@ -75,12 +72,34 @@ if(summary$model_max_max_top_1_to_1==summary$model_max_max_top_1_to_10)
 }
 write.table(summary, file="summary.txt", quote=FALSE, row.names=FALSE);
 
-png("plot.png", width=7, height=4, units="in", res=150);
-plot(x=1:M, y=((1:M)/M), ylim=valrange, type="n", xaxt="n", xlab="", ylab="Consensus score", main="_TITLE_");
+global_ltys=c(1, 2, 3);
+global_colors=c("red", "blue", "darkgreen");
+
+legend_sels=c(sel_max_top_1_to_10);
+legend_ltys=c(global_ltys[length(legend_sels)]);
+legend_labels=c(dt$model[sel_max_top_1_to_10]);
+legend_colors=c(global_colors[length(legend_sels)]);
+if(sel_max_top_1_to_1!=sel_max_top_1_to_10)
+{
+	legend_sels=c(legend_sels, sel_max_top_1_to_1);
+	legend_ltys=c(legend_ltys, global_ltys[length(legend_sels)]);
+	legend_labels=c(legend_labels, dt$model[sel_max_top_1_to_1]);
+	legend_colors=c(legend_colors, global_colors[length(legend_sels)]);
+}
+if(sel_mean_top_1_to_5!=sel_max_top_1_to_10 && sel_mean_top_1_to_5!=sel_max_top_1_to_1)
+{
+	legend_sels=c(legend_sels, sel_mean_top_1_to_5);
+	legend_ltys=c(legend_ltys, global_ltys[length(legend_sels)]);
+	legend_labels=c(legend_labels, dt$model[sel_mean_top_1_to_5]);
+	legend_colors=c(legend_colors, global_colors[length(legend_sels)]);
+}
+
+png("plot.png", width=4, height=4, units="in", res=150);
+plot(x=1:M, y=((1:M)/M), ylim=c(0, 1), type="n", xaxt="n", xlab="", ylab="Consensus score", main="_TITLE_");
 axis(1, at=1:M, labels=FALSE);
 text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
 points(c(-1000, 1000), c(0.6, 0.6), type="l");
-for(category in c(0, 3, 2, 1))
+for(category in c(0, 1:length(legend_sels)))
 {
 	allowed=TRUE;
 	col="gray";
@@ -88,50 +107,30 @@ for(category in c(0, 3, 2, 1))
 	lty=1;
 	sdt=dt;
 	
-	if(category==1)
+	if(category>0)
 	{
-		col="red";
 		lwd=2;
-		lty=1;
-		sdt=dt[sel_max_top_1_to_10,];
+		col=legend_colors[category];
+		lty=legend_ltys[category];
+		sdt=dt[legend_sels[category],];
 	}
 	
-	if(category==2)
+	for(i in 1:nrow(sdt))
 	{
-		allowed=(sel_max_top_1_to_1!=sel_max_top_1_to_10);
-		col="blue";
-		lwd=2;
-		lty=3;
-		sdt=dt[sel_max_top_1_to_1,];
-	}
-	
-	if(category==3)
-	{
-		allowed=(sel_mean_top_1_to_5!=sel_max_top_1_to_10 && sel_mean_top_1_to_5!=sel_max_top_1_to_1);
-		col="green";
-		lwd=2;
-		lty=3;
-		sdt=dt[sel_mean_top_1_to_5,];
-	}
-	
-	if(allowed)
-	{
-		for(i in 1:nrow(sdt))
+		x=1:M;
+		y=as.vector(sdt[i, valnames]);
+		sel=which(y>0);
+		x=x[sel];
+		y=y[sel];
+		if(length(y)==1)
 		{
-			x=1:M;
-			y=as.vector(sdt[i, valnames]);
-			sel=which(y>0);
-			x=x[sel];
-			y=y[sel];
-			if(length(y)==1)
-			{
-				x=c(x-0.2, x);
-				y=c(y, y);
-			}
-			points(x, y, type="l", col=col, lwd=lwd, lty=lty);
+			x=c(x-0.2, x);
+			y=c(y, y);
 		}
+		points(x, y, type="l", col=col, lwd=lwd, lty=lty);
 	}
 }
+legend("topright", legend=legend_labels, col=legend_colors, lty=legend_ltys, lwd=3, bty="n", ncol=1);
 dev.off();
 EOF
 } \
