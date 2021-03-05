@@ -47,6 +47,8 @@ C1906x2
 C1908x2
 EOF
 
+mkdir -p "./output/sets_of_unique_models"
+
 cat "$TMPLDIR/targets" \
 | xargs -L 1 ./scripts/collect_unique_models_for_target.bash \
 > "./output/sets_of_unique_models/all_big_clusters"
