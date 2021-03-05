@@ -51,7 +51,9 @@ for(target in targets)
 		result=rbind(result, sresult);
 	}
 }
-result=result[order(0-result$max_consensus_cadscore),];
+result$reliability="borderline";
+result$reliability[which(result$max_consensus_cadscore>=0.60 & result$max_consensus_lddt>=0.60)]="high";
+result$reliability[which(result$max_consensus_cadscore<=0.55 & result$max_consensus_lddt<=0.55)]="low";
 write.table(result, file="summary.txt", quote=FALSE, row.names=FALSE);
 EOF
 } \
@@ -128,6 +130,7 @@ th, td {
 <th rowspan="2">Unique models</th>
 <th colspan="2">Max. consensus</th>
 <th rowspan="2">Selected models</th>
+<th rowspan="2">Selection confidence</th>
 </tr>
 <tr>
 <th>CAD-score</th>
@@ -137,8 +140,8 @@ EOF
 
 cat "$TMPLDIR/summary.txt" \
 | tail -n +2 \
-| awk '{print $1 " " $2 " " $3 " " $4 " " $6}' \
-| while read -r f_target f_models f_max_cadscore f_max_lddt f_selection
+| awk '{print $1 " " $2 " " $3 " " $4 " " $6 " " $9}' \
+| while read -r f_target f_models f_max_cadscore f_max_lddt f_selection f_reliability
 do
 	{
 	echo "<tr>"
@@ -147,8 +150,13 @@ do
 	echo "<td>${f_max_cadscore}</td>"
 	echo "<td>${f_max_lddt}</td>"
 	echo "<td>$(echo ${f_selection} | sed "s/${f_target}TS//g" | sed 's/,/, /g')</td>"
+	echo "<td>${f_reliability}</td>"
 	echo "</tr>"
-	} | tr '\n' ' '
+	} \
+	| sed 's|<td>high</td>|<td style="background-color:#55ff55;">High</td>|' \
+	| sed 's|<td>borderline</td>|<td style="background-color:#ffff55;">Borderline</td>|' \
+	| sed 's|<td>low</td>|<td style="background-color:#ff5555;">Low</td>|' \
+	| tr '\n' ' '
 	echo
 done
 
