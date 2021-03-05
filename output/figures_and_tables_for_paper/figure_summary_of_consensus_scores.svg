@@ -16,8 +16,8 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="drawing.svg"
-   inkscape:export-filename="/home/kliment/git/casp_commons_covid_analysis/output/combined_summary_of_consensus/figure_summary_of_consensus_scores.png"
+   sodipodi:docname="figure_summary_of_consensus_scores.svg"
+   inkscape:export-filename="/home/kliment/git/casp_commons_covid_analysis/output/figures_and_tables_for_paper/figure_summary_of_consensus_scores.png"
    inkscape:export-xdpi="150"
    inkscape:export-ydpi="150">
   <defs
@@ -30,7 +30,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="271.89693"
+     inkscape:cx="384.75407"
      inkscape:cy="498.38253"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,23 +58,23 @@
      inkscape:groupmode="layer"
      id="layer1">
     <image
-       sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
-       xlink:href="inmprovement_of_consensus_scores_lddt.png"
-       width="101.6"
-       height="254"
-       preserveAspectRatio="none"
-       id="image944"
+       sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/figures_and_tables_for_paper/../combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
+       xlink:href="../combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
+       y="10.116069"
        x="91.733482"
-       y="10.116069" />
-    <image
-       sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
-       xlink:href="inmprovement_of_consensus_scores_cadscore.png"
-       width="101.6"
-       height="254"
+       id="image944"
        preserveAspectRatio="none"
-       id="image933"
+       height="254"
+       width="101.6" />
+    <image
+       sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/figures_and_tables_for_paper/../combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
+       xlink:href="../combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
+       y="10.116069"
        x="16.479755"
-       y="10.116069" />
+       id="image933"
+       preserveAspectRatio="none"
+       height="254"
+       width="101.6" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
        id="rect971"

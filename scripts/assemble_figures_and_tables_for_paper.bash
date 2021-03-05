@@ -7,6 +7,36 @@ mkdir -p "$OUTDIR"
 readonly TMPLDIR=$(mktemp -d)
 trap "rm -r $TMPLDIR" EXIT
 
+export LC_ALL=C
+
+################################################################################
+
+montage \
+  "./output/summaries_of_consensus_cadscores/histogram.png" \
+  "./output/summaries_of_consensus_lddts/histogram.png" \
+  -tile 2x1 \
+  -geometry +0+0 \
+  "$OUTDIR/figure_histograms_of_consensus_scores.png"
+
+montage \
+  "./output/summaries_of_consensus_cadscores/C1901_scores.png" \
+  "./output/summaries_of_consensus_cadscores/C1904_scores.png" \
+  -tile 2x1 \
+  -geometry +0+0 \
+  "$OUTDIR/figure_examples_of_gradual_consensus.png"
+
+montage \
+  $(find ./output/summaries_of_consensus_cadscores/ -type f -name '*_scores.png' | tr '_' ' ' | sort | tr ' ' '_') \
+  -tile 4x \
+  -geometry +0+0 \
+  "$OUTDIR/figure_all_gradual_consensus_plots_for_cadscores.png"
+
+montage \
+  $(find ./output/summaries_of_consensus_lddts/ -type f -name '*_scores.png' | tr '_' ' ' | sort | tr ' ' '_') \
+  -tile 4x \
+  -geometry +0+0 \
+  "$OUTDIR/figure_all_gradual_consensus_plots_for_lddts.png"
+
 ################################################################################
 
 {
