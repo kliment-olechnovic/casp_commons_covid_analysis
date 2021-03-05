@@ -72,3 +72,5 @@ done
 
 ./scripts/combine_top_model_selections.bash
 
+./scripts/assemble_figures_and_tables_for_paper.bash
+
