@@ -6,9 +6,11 @@ ID   name                  redundancy_weight
 451  Bhattacharya-QDeepEx  1/3
 490  bioinsilico_sbi       1/2
 377  bioinsilico_sbi_PAIR  1/2
+049  CAO-SERVER            1
 179  DAVIS-QAconsensus     1
 438  Destini               1
 037  Elofsson              1
+121  FoldEM                1
 363  GCMQA                 1
 210  Kiharalab             1/2
 405  Kiharalab_Z           1/2

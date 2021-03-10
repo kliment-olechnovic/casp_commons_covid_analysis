@@ -5,9 +5,11 @@ QA206 Bhattacharya-QDeep
 QA451 Bhattacharya-QDeepEx
 QA490 bioinsilico_sbi
 QA377 bioinsilico_sbi_PAIR
+QA049 CAO-SERVER
 QA179 DAVIS-QAconsensus
 QA438 Destini
 QA037 Elofsson
+QA121 FoldEM
 QA363 GCMQA
 QA210 Kiharalab
 QA405 Kiharalab_Z
