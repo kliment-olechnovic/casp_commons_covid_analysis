@@ -3,6 +3,7 @@
 QAGROUPSSET="$1"
 TARGETNAME="$2"
 TOPNUM="$3"
+MINCOVERAGE="$4"
 
 if [ -z "$QAGROUPSSET" ]
 then
@@ -20,6 +21,11 @@ if [ -z "$TOPNUM" ]
 then
 	echo >&2 "Error: missing top number"
 	exit 1
+fi
+
+if [ -z "$MINCOVERAGE" ]
+then
+	MINCOVERAGE="20"
 fi
 
 QAGROUPSSETFILE="./input/qa_groups_sets/$QAGROUPSSET"
@@ -48,7 +54,7 @@ do
 	if [ -s "$TABLEFILE" ]
 	then
 		MCOUNT="$(cat "${TABLEFILE}" | egrep "^${TARGETNAME}" | wc -l)"
-		if [ "$MCOUNT" -gt 20 ]
+		if [ "$MCOUNT" -gt "$MINCOVERAGE" ]
 		then
 			cat "${TABLEFILE}" \
 			| egrep "^${TARGETNAME}" \
