@@ -88,7 +88,7 @@ dt=t(as.matrix(dt));
 png("plot2_SCORENAME.png", width=4, height=10, units="in", res=150);
 par(mar=c(5,6,1,1));
 barplot(dt, beside=FALSE, horiz=TRUE, las=1, args.legend=list(x="topright"), xlab="Max. consensus score");
-points(c(0.6, 0.6), c(0, nrow(raw_dt)*4+1), type="l");
+points(c(0.6, 0.6), c(0, nrow(raw_dt)*4+1), type="l", lty=2);
 dev.off();
 EOF
 } \

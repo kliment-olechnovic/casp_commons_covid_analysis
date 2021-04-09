@@ -30,7 +30,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="384.75407"
+     inkscape:cx="154.75407"
      inkscape:cy="498.38253"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -60,21 +60,21 @@
     <image
        sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/figures_and_tables_for_paper/../combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
        xlink:href="../combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
-       y="10.116069"
-       x="91.733482"
-       id="image944"
-       preserveAspectRatio="none"
+       width="101.6"
        height="254"
-       width="101.6" />
+       preserveAspectRatio="none"
+       id="image944"
+       x="91.733482"
+       y="10.116069" />
     <image
        sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/figures_and_tables_for_paper/../combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
        xlink:href="../combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
-       y="10.116069"
-       x="16.479755"
-       id="image933"
-       preserveAspectRatio="none"
+       width="101.6"
        height="254"
-       width="101.6" />
+       preserveAspectRatio="none"
+       id="image933"
+       x="16.479755"
+       y="10.116069" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
        id="rect971"
@@ -113,15 +113,12 @@
        y="265.80734" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14701748px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14690282px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738;"
        x="100.67902"
        y="269.46494"
        id="text949-4"><tspan
          sodipodi:role="line"
-         id="tspan1008"
-         x="100.67902"
-         y="269.46494"
-         style="stroke-width:0.1036738">Max. global consensus</tspan></text>
+         id="tspan828">Max. global consensus (no QA used)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14690304px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738"

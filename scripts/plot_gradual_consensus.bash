@@ -1,7 +1,8 @@
 #!/bin/bash
 
-INFILE="$1"
-OUTFILE="$2"
+SCORENAME="$1"
+INFILE="$2"
+OUTFILE="$3"
 
 if [ -z "$INFILE" ] || [ ! -s "$INFILE" ]
 then
@@ -72,8 +73,8 @@ if(summary$model_max_max_top_1_to_1==summary$model_max_max_top_1_to_10)
 }
 write.table(summary, file="summary.txt", quote=FALSE, row.names=FALSE);
 
-global_ltys=c(1, 2, 3);
-global_colors=c("red", "blue", "darkgreen");
+global_ltys=c(1, 1, 1);
+global_colors=c("red", "red", "red");
 
 legend_sels=c(sel_max_top_1_to_10);
 legend_ltys=c(global_ltys[length(legend_sels)]);
@@ -95,7 +96,7 @@ if(sel_mean_top_1_to_5!=sel_max_top_1_to_10 && sel_mean_top_1_to_5!=sel_max_top_
 }
 
 png("plot.png", width=4, height=4, units="in", res=150);
-plot(x=1:M, y=((1:M)/M), ylim=c(0, 1), type="n", xaxt="n", xlab="", ylab="Consensus score", main="_TITLE_");
+plot(x=1:M, y=((1:M)/M), ylim=c(0, 1), type="n", xaxt="n", xlab="", ylab="Consensus _pretty__SCORENAME_", main="_TITLE_");
 axis(1, at=1:M, labels=FALSE);
 text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
 points(c(-1000, 1000), c(0.6, 0.6), type="l");
@@ -134,6 +135,9 @@ legend("topright", legend=legend_labels, col=legend_colors, lty=legend_ltys, lwd
 dev.off();
 EOF
 } \
+| sed "s|_SCORENAME_|${SCORENAME}|g" \
+| sed "s|_pretty_cadscores|CAD-score|g" \
+| sed "s|_pretty_lddts|lDDT|g" \
 | sed "s|_TITLE_|$(basename $INFILE .txt)|g" \
 | R --vanilla > /dev/null
 

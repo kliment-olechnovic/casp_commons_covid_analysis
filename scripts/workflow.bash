@@ -72,5 +72,7 @@ done
 
 ./scripts/combine_top_model_selections.bash
 
+./scripts/summarize_differences_in_qa_rankings.bash 
+
 ./scripts/assemble_figures_and_tables_for_paper.bash
 

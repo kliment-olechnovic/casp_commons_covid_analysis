@@ -14,6 +14,7 @@ fi
 | while read TARGETNAME
 do
 	./scripts/plot_gradual_consensus.bash \
+	  "$SCORENAME" \
 	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}.txt" \
 	  "./output/summaries_of_consensus_${SCORENAME}/${TARGETNAME}_scores.png"
 done
