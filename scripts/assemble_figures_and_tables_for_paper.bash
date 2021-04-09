@@ -254,3 +254,109 @@ EOF
 
 ################################################################################
 
+{
+cat << 'EOF'
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<th>Target</th>
+<th>Number of QA methods that provided scores</th>
+<th>Number of unique models in top 1</th>
+<th>Number of unique models in top 3</th>
+<th>Average Spearman correlation coef. between QA scores</th>
+</tr>
+EOF
+
+cat "./output/differences_in_qa_rankings/summary_of_differences_in_qa_rankings.txt" \
+| tail -n +2 \
+| while read -r f_target f_n_qa f_n_top1 f_n_top3 f_cor
+do
+	{
+	echo "<tr>"
+	echo "<td>${f_target}</td>"
+	echo "<td>${f_n_qa}</td>"
+	echo "<td>${f_n_top1}</td>"
+	echo "<td>${f_n_top3}</td>"
+	echo "<td>$(echo "${f_cor}" | awk '{printf "%.2f", $1}')</td>"
+	echo "</tr>"
+	} \
+	| tr '\n' ' '
+	echo
+done
+
+cat << 'EOF'
+</table>
+</body>
+</html>
+EOF
+} \
+> "$OUTDIR/table_summary_of_differences_in_qa_rankings.html"
+
+################################################################################
+
+{
+cat << 'EOF'
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<th>Target</th>
+<th>Number of QA methods that provided scores</th>
+<th>Number of unique models in top 1</th>
+<th>Number of unique models in top 3</th>
+<th>Average Spearman correlation coef. between QA scores</th>
+</tr>
+EOF
+
+cat "./output/differences_in_qa_rankings/summary_of_differences_in_reputable_qa_rankings.txt" \
+| tail -n +2 \
+| while read -r f_target f_n_qa f_n_top1 f_n_top3 f_cor
+do
+	{
+	echo "<tr>"
+	echo "<td>${f_target}</td>"
+	echo "<td>${f_n_qa}</td>"
+	echo "<td>${f_n_top1}</td>"
+	echo "<td>${f_n_top3}</td>"
+	echo "<td>$(echo "${f_cor}" | awk '{printf "%.2f", $1}')</td>"
+	echo "</tr>"
+	} \
+	| tr '\n' ' '
+	echo
+done
+
+cat << 'EOF'
+</table>
+</body>
+</html>
+EOF
+} \
+> "$OUTDIR/table_summary_of_differences_in_subset_of_qa_rankings.html"
+
+################################################################################
+
