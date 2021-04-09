@@ -1,7 +1,14 @@
 #!/bin/bash
 
-TARGETNAME="$1"
-MINCOVERAGE="$2"
+QAGROUPSSET="$1"
+TARGETNAME="$2"
+MINCOVERAGE="$3"
+
+if [ -z "$QAGROUPSSET" ]
+then
+	echo >&2 "Error: missing QA groups set name"
+	exit 1
+fi
 
 if [ -z "$TARGETNAME" ]
 then
@@ -14,7 +21,7 @@ then
 	MINCOVERAGE="20"
 fi
 
-QAGROUPSSETFILE="./input/qa_groups_sets/all_nonredundant"
+QAGROUPSSETFILE="./input/qa_groups_sets/$QAGROUPSSET"
 
 if [ ! -s "$QAGROUPSSETFILE" ]
 then

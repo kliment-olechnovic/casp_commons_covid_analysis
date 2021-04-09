@@ -45,6 +45,25 @@ echo "Target Number_of_QA_methods Number_of_unique_models_in_top_1 Number_of_uni
 cat "$TMPLDIR/targets" \
 | while read TARGET
 do
+	./scripts/print_top_selected_models_for_target.bash reputable "$TARGET" 1 1 | awk '{print $1}' > "$TMPLDIR/all_top1"
+	cat "$TMPLDIR/all_top1" | sort | uniq > "$TMPLDIR/unique_top1"
+	
+	./scripts/print_top_selected_models_for_target.bash reputable "$TARGET" 3 3 | awk '{print $1}' > "$TMPLDIR/all_top3"
+	cat "$TMPLDIR/all_top3" | sort | uniq > "$TMPLDIR/unique_top3"
+	
+	echo "${TARGET}" "$(cat ${TMPLDIR}/all_top1 | wc -l)" \
+	  "$(cat ${TMPLDIR}/unique_top1 | wc -l)" "$(cat ${TMPLDIR}/unique_top3 | wc -l)" \
+	  "$(./scripts/calculate_correlations_between_qa_scores_for_target.bash reputable $TARGET | tail -1 | awk '{print $4}')"
+done
+} \
+| column -t \
+> "./output/differences_in_qa_rankings/summary_of_differences_in_reputable_qa_rankings.txt"
+
+{
+echo "Target Number_of_QA_methods Number_of_unique_models_in_top_1 Number_of_unique_models_in_top_3 Mean_Spearman_correlation"
+cat "$TMPLDIR/targets" \
+| while read TARGET
+do
 	./scripts/print_top_selected_models_for_target.bash all "$TARGET" 1 1 | awk '{print $1}' > "$TMPLDIR/all_top1"
 	cat "$TMPLDIR/all_top1" | sort | uniq > "$TMPLDIR/unique_top1"
 	
@@ -53,7 +72,7 @@ do
 	
 	echo "${TARGET}" "$(cat ${TMPLDIR}/all_top1 | wc -l)" \
 	  "$(cat ${TMPLDIR}/unique_top1 | wc -l)" "$(cat ${TMPLDIR}/unique_top3 | wc -l)" \
-	  "$(./scripts/calculate_correlations_between_qa_scores_for_target.bash $TARGET | tail -1 | awk '{print $4}')"
+	  "$(./scripts/calculate_correlations_between_qa_scores_for_target.bash all_nonredundant $TARGET | tail -1 | awk '{print $4}')"
 done
 } \
 | column -t \
