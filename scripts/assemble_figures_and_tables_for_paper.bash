@@ -27,13 +27,13 @@ montage \
 
 montage \
   $(find ./output/summaries_of_consensus_cadscores/ -type f -name '*_scores.png' | tr '_' ' ' | sort | tr ' ' '_') \
-  -tile 4x \
+  -tile 5x \
   -geometry +0+0 \
   "$OUTDIR/figure_all_gradual_consensus_plots_for_cadscores.png"
 
 montage \
   $(find ./output/summaries_of_consensus_lddts/ -type f -name '*_scores.png' | tr '_' ' ' | sort | tr ' ' '_') \
-  -tile 4x \
+  -tile 5x \
   -geometry +0+0 \
   "$OUTDIR/figure_all_gradual_consensus_plots_for_lddts.png"
 
