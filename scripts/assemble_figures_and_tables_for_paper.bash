@@ -158,7 +158,7 @@ th, td {
 </tr>
 <tr>
 <th>CAD-score</th>
-<th>lDDT</th>
+<th>LDDT</th>
 </tr>
 EOF
 
