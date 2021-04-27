@@ -30,15 +30,15 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="154.75407"
-     inkscape:cy="498.38253"
+     inkscape:cx="98.325499"
+     inkscape:cy="555.52539"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1807"
-     inkscape:window-height="1192"
-     inkscape:window-x="1342"
-     inkscape:window-y="672"
+     inkscape:window-height="1011"
+     inkscape:window-x="105"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:snap-global="false" />
   <metadata
@@ -60,21 +60,21 @@
     <image
        sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/figures_and_tables_for_paper/../combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
        xlink:href="../combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png"
-       width="101.6"
-       height="254"
-       preserveAspectRatio="none"
-       id="image944"
+       y="10.116069"
        x="91.733482"
-       y="10.116069" />
+       id="image944"
+       preserveAspectRatio="none"
+       height="254"
+       width="101.6" />
     <image
        sodipodi:absref="/home/kliment/git/casp_commons_covid_analysis/output/figures_and_tables_for_paper/../combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
        xlink:href="../combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png"
-       width="101.6"
-       height="254"
-       preserveAspectRatio="none"
-       id="image933"
+       y="10.116069"
        x="16.479755"
-       y="10.116069" />
+       id="image933"
+       preserveAspectRatio="none"
+       height="254"
+       width="101.6" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
        id="rect971"
@@ -95,46 +95,45 @@
          style="stroke-width:0.12929228">CAD-score</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.17169142px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12929228"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.17172217px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12929228;"
        x="126.99097"
        y="15.571425"
        id="text949-2"><tspan
          sodipodi:role="line"
-         id="tspan969"
-         x="126.99097"
-         y="15.571425"
-         style="stroke-width:0.12929228">lDDT</tspan></text>
+         id="tspan829">LDDT</tspan></text>
     <rect
        style="fill:#4d4d4d;fill-opacity:1;stroke:#000000;stroke-width:0.31367758;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect973"
        width="13.429682"
        height="5.0270748"
-       x="84.346611"
+       x="80.113274"
        y="265.80734" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14690282px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738;"
-       x="100.67902"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14690304px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738"
+       x="96.445686"
        y="269.46494"
        id="text949-4"><tspan
          sodipodi:role="line"
-         id="tspan828">Max. global consensus (no QA used)</tspan></text>
+         id="tspan831"
+         x="96.445686"
+         y="269.46494">Max. global consensus (no EMA used)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.14690304px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1036738"
-       x="100.67902"
+       x="96.445686"
        y="278.73459"
        id="text949-4-1"><tspan
          sodipodi:role="line"
-         id="tspan1028"
-         x="100.67902"
-         y="278.73459">Improvement of max. consensus after QA</tspan></text>
+         id="tspan835"
+         x="96.445686"
+         y="278.73459">Improvement of max. consensus after EMA</tspan></text>
     <rect
        style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0.31367758;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect973-5"
        width="13.429682"
        height="5.0270748"
-       x="84.346611"
+       x="80.113274"
        y="275.077" />
   </g>
 </svg>

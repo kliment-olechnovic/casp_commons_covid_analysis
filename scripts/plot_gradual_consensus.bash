@@ -137,7 +137,7 @@ EOF
 } \
 | sed "s|_SCORENAME_|${SCORENAME}|g" \
 | sed "s|_pretty_cadscores|CAD-score|g" \
-| sed "s|_pretty_lddts|lDDT|g" \
+| sed "s|_pretty_lddts|LDDT|g" \
 | sed "s|_TITLE_|$(basename $INFILE .txt)|g" \
 | R --vanilla > /dev/null
 

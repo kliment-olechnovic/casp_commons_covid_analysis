@@ -30,7 +30,7 @@ EOF
 } \
 | sed "s/_SCORENAME_/__${SCORENAME}__/g" \
 | sed 's/__cadscores__/CAD-score/g' \
-| sed 's/__lddts__/lDDT/g' \
+| sed 's/__lddts__/LDDT/g' \
 | R --vanilla > /dev/null
 
 cd - &> /dev/null
