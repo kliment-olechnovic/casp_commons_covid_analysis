@@ -31,8 +31,6 @@ fi
 
 {
 seq 1 10
-echo 20
-echo 50
 echo 999
 } \
 | while read TOPNUM
@@ -69,7 +67,7 @@ for(i in 2:ncol(dt))
 	dt[which(!is.finite(dt[,i])), i]=0;
 }
 
-dt=dt[order(0-dt$cs_top1, 0-dt$cs_top2, 0-dt$cs_top3, 0-dt$cs_top4, 0-dt$cs_top5, 0-dt$cs_top6, 0-dt$cs_top7, 0-dt$cs_top8, 0-dt$cs_top9, 0-dt$cs_top10, 0-dt$cs_top20, 0-dt$cs_top50, 0-dt$cs_top999),];
+dt=dt[order(0-dt$cs_top1, 0-dt$cs_top2, 0-dt$cs_top3, 0-dt$cs_top4, 0-dt$cs_top5, 0-dt$cs_top6, 0-dt$cs_top7, 0-dt$cs_top8, 0-dt$cs_top9, 0-dt$cs_top10, 0-dt$cs_top999),];
 
 dt=format(dt, digits=3);
 
