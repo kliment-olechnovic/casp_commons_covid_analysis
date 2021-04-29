@@ -39,6 +39,11 @@ montage \
 
 ################################################################################
 
+cp "./output/combined_summary_of_consensus/inmprovement_of_consensus_scores_cadscore.png" "$OUTDIR/figure_summary_of_consensus_scores_cadscore.png"
+cp "./output/combined_summary_of_consensus/inmprovement_of_consensus_scores_lddt.png" "$OUTDIR/figure_summary_of_consensus_scores_lddt.png"
+
+################################################################################
+
 {
 cat << 'EOF'
 <html>
@@ -132,6 +137,9 @@ EOF
 
 ################################################################################
 
+for SCORENAME in cadscore lddt
+do
+
 {
 cat << 'EOF'
 <html>
@@ -150,29 +158,24 @@ th, td {
 <body>
 <table>
 <tr>
-<th rowspan="2">Target</th>
-<th rowspan="2">Unique models</th>
-<th colspan="2">Max. consensus</th>
-<th rowspan="2">Selected models</th>
-<th rowspan="2">Level of agreement of EMA rankings</th>
-</tr>
-<tr>
-<th>CAD-score</th>
-<th>LDDT</th>
+<th>Target</th>
+<th>Unique models</th>
+<th>Max. consensus score</th>
+<th>Selected models</th>
+<th>Level of agreement of EMA rankings</th>
 </tr>
 EOF
 
-cat "./output/combined_summary_of_consensus/top_model_selections.txt" \
+cat "./output/combined_summary_of_consensus/top_model_selections_${SCORENAME}.txt" \
 | tail -n +2 \
-| awk '{print $1 " " $2 " " $3 " " $4 " " $6 " " $9}' \
-| while read -r f_target f_models f_max_cadscore f_max_lddt f_selection f_reliability
+| awk '{print $1 " " $2 " " $3 " " $5 " " $7}' \
+| while read -r f_target f_models f_max_score f_selection f_reliability
 do
 	{
 	echo "<tr>"
 	echo "<td>${f_target}</td>"
 	echo "<td>${f_models}</td>"
-	echo "<td>${f_max_cadscore}</td>"
-	echo "<td>${f_max_lddt}</td>"
+	echo "<td>${f_max_score}</td>"
 	echo "<td>$(echo ${f_selection} | sed "s/${f_target}TS//g" | sed 's/,/, /g')</td>"
 	echo "<td>${f_reliability}</td>"
 	echo "</tr>"
@@ -190,7 +193,9 @@ cat << 'EOF'
 </html>
 EOF
 } \
-> "$OUTDIR/table_top_model_selections.html"
+> "$OUTDIR/table_top_model_selections_${SCORENAME}.html"
+
+done
 
 ################################################################################
 
