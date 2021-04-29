@@ -68,7 +68,7 @@ png("plot2_SCORENAME.png", width=5, height=8, units="in", res=150);
 par(mar=c(5,5,0,1), oma=c(0,0,0,0));
 barplot(dt, beside=TRUE, horiz=TRUE, las=1, args.legend=list(x="topright"), xlab="", col=c("gray40", "gray90"));
 points(c(0.6, 0.6), c(0, nrow(raw_dt)*3+0.5), type="l", lty=2);
-legend(0, -9, legend=c("max. selection-dependent consensus score", "max. simple global consensus score"), bty="n", xpd=TRUE, pt.cex=2, pch=c(22, 22), col=c("black", "black"), pt.bg=c("gray90", "gray40"))
+legend(0, -9, legend=c("max. selection-influenced consensus score", "max. simple global consensus score"), bty="n", xpd=TRUE, pt.cex=2, pch=c(22, 22), col=c("black", "black"), pt.bg=c("gray90", "gray40"))
 dev.off();
 EOF
 } \
