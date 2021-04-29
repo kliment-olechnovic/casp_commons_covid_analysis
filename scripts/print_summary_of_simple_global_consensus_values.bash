@@ -21,10 +21,23 @@ cd "$TMPLDIR"
 {
 cat << 'EOF'
 dt=read.table("values", header=FALSE, stringsAsFactors=FALSE);
-quantile(dt$V2);
-sel=which(dt$V2<0.6);
-length(sel)/nrow(dt);
+nrow(dt);
+quantile(dt$V2, p=seq(0.95, 1, 0.01));
+length(which(dt$V2<0.6))/nrow(dt);
+length(which(dt$V2<0.55))/nrow(dt);
 EOF
 } \
 | R --vanilla
 
+cat "./values" | egrep -v '^C1910' | sponge "./values"
+
+{
+cat << 'EOF'
+dt=read.table("values", header=FALSE, stringsAsFactors=FALSE);
+nrow(dt);
+quantile(dt$V2, p=seq(0.95, 1, 0.01));
+length(which(dt$V2<0.6))/nrow(dt);
+length(which(dt$V2<0.55))/nrow(dt);
+EOF
+} \
+| R --vanilla
