@@ -160,7 +160,7 @@ th, td {
 <tr>
 <th>Target</th>
 <th>Unique models</th>
-<th>Max. selection-influenced consensus score</th>
+<th>Max. EMA-jury consensus score</th>
 <th>Selected models</th>
 </tr>
 EOF
