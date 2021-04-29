@@ -24,7 +24,7 @@ cd "$TMPLDIR"
 cat << 'EOF'
 dt=read.table("values", header=FALSE, stringsAsFactors=FALSE);
 png("plot.png", width=5, height=5, units="in", res=150);
-hist(dt$V2, breaks=seq(0, 1, 0.02), xlab="Global consensus _SCORENAME_", main="_SCORENAME_");
+hist(dt$V2, breaks=seq(0, 1, 0.02), xlab="Global consensus _SCORENAME_", main="Global consensus _SCORENAME_");
 dev.off();
 EOF
 } \
