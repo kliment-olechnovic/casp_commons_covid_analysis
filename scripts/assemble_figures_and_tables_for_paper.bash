@@ -162,7 +162,6 @@ th, td {
 <th>Unique models</th>
 <th>Max. selection-influenced consensus score</th>
 <th>Selected models</th>
-<th>Level of agreement of EMA rankings</th>
 </tr>
 EOF
 
@@ -175,14 +174,13 @@ do
 	echo "<tr>"
 	echo "<td>${f_target}</td>"
 	echo "<td>${f_models}</td>"
-	echo "<td>${f_max_score}</td>"
+	echo "<td ${f_reliability}>${f_max_score}</td>"
 	echo "<td>$(echo ${f_selection} | sed "s/${f_target}TS//g" | sed 's/,/, /g')</td>"
-	echo "<td>${f_reliability}</td>"
 	echo "</tr>"
 	} \
-	| sed 's|<td>high</td>|<td style="background-color:#55ff55;">High</td>|' \
-	| sed 's|<td>borderline</td>|<td style="background-color:#ffff55;">Borderline</td>|' \
-	| sed 's|<td>low</td>|<td style="background-color:#ff5555;">Low</td>|' \
+	| sed 's|<td high>|<td style="background-color:#55ff55;">|' \
+	| sed 's|<td borderline>|<td style="background-color:#ff5555;">|' \
+	| sed 's|<td low>|<td style="background-color:#ff5555;">|' \
 	| tr '\n' ' '
 	echo
 done
