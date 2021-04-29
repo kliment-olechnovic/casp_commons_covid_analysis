@@ -95,10 +95,12 @@ if(sel_mean_top_1_to_5!=sel_max_top_1_to_10 && sel_mean_top_1_to_5!=sel_max_top_
 	legend_colors=c(legend_colors, global_colors[length(legend_sels)]);
 }
 
-png("plot.png", width=4, height=4, units="in", res=150);
-plot(x=1:M, y=((1:M)/M), ylim=c(0, 1), type="n", xaxt="n", xlab="", ylab="Consensus _pretty__SCORENAME_", main="_TITLE_");
+png("plot.png", width=3.6, height=3.6, units="in", res=150);
+par(mar=c(3.7,3.2,1.5,0.5), oma=c(0,0,0,0));
+plot(x=1:M, y=((1:M)/M), ylim=c(0, 1), type="n", xaxt="n", xlab="", ylab="", main="_TITLE_");
+title(ylab="Consensus _pretty__SCORENAME_", line=2.2);
 axis(1, at=1:M, labels=FALSE);
-text(x=1:M, y=(par()$usr[3]-0.07*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
+text(x=1:M, y=(par()$usr[3]-0.055*(par()$usr[4]-par()$usr[3])), labels=sub("_", " ", valnames), srt=90, adj=1, xpd=TRUE);
 points(c(-1000, 1000), c(0.6, 0.6), type="l");
 for(category in c(0, 1:length(legend_sels)))
 {
