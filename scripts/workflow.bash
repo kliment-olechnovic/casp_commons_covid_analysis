@@ -76,3 +76,6 @@ done
 
 ./scripts/assemble_figures_and_tables_for_paper.bash
 
+./scripts/assemble_dendrograms.bash cadscores
+./scripts/assemble_dendrograms.bash lddts
+
